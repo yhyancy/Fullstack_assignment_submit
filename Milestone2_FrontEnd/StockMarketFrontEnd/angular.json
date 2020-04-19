@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "StockMarketFrontEnd"
+    }
+  },
+  "defaultProject": "StockMarketFrontEnd",
+  "cli": {
+    "analytics": true
+  }
 }
