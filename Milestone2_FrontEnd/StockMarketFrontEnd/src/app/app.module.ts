@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HearderComponent } from './components/hearder/hearder.component';
@@ -34,7 +36,8 @@ import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodeta
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

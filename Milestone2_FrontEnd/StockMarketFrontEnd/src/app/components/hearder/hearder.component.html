@@ -1,5 +1,16 @@
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Stock Market</a>
     <button class="btn btn-outline-info my-2 my-sm-0" type="submit" [routerLink]="['/login']">Sign in</button>
-    <button class="btn btn-outline-info my-2 my-sm-0" type="submit" [routerLink]="['/logout']">Logout</button>
+
+    <div class="row">
+        <div class="col">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-info" id="dropdownBasic1" ngbDropdownToggle>Me</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Change Password</button>
+                    <button ngbDropdownItem>Log out</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
