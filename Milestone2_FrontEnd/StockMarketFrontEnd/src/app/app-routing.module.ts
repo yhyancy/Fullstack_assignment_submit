@@ -5,13 +5,15 @@ import { LoginComponent } from "./components/login/login.component";
 import { SignupComponent } from "./components/signup/signup.component";
 import { UserhomeComponent } from "./components/userhome/userhome.component";
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'userhome', component: UserhomeComponent },
-  { path: 'changepassword', component: ChangePasswordComponent }
+  { path: 'changepassword', component: ChangePasswordComponent },
+  { path: 'logout', component: LogoutComponent }
 
 ];
 

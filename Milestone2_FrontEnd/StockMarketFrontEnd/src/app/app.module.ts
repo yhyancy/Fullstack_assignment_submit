@@ -18,6 +18,7 @@ import { ManageCompanyComponent } from './components/adminhome/manage-company/ma
 import { ManageExchangeComponent } from './components/adminhome/manage-exchange/manage-exchange.component';
 import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodetails/update-ipodetails.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     ManageCompanyComponent,
     ManageExchangeComponent,
     UpdateIPODetailsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
