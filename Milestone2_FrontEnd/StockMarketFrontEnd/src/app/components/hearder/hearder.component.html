@@ -7,7 +7,7 @@
             <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-info" id="dropdownBasic1" ngbDropdownToggle>Me</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button ngbDropdownItem>Change Password</button>
+                    <button ngbDropdownItem [routerLink]="['/changepassword']">Change Password</button>
                     <button ngbDropdownItem>Log out</button>
                 </div>
             </div>

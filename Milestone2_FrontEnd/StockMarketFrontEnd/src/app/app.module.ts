@@ -17,6 +17,7 @@ import { ImportDataComponent } from './components/adminhome/import-data/import-d
 import { ManageCompanyComponent } from './components/adminhome/manage-company/manage-company.component';
 import { ManageExchangeComponent } from './components/adminhome/manage-exchange/manage-exchange.component';
 import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodetails/update-ipodetails.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodeta
     ImportDataComponent,
     ManageCompanyComponent,
     ManageExchangeComponent,
-    UpdateIPODetailsComponent
+    UpdateIPODetailsComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
