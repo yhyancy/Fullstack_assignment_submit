@@ -11,6 +11,10 @@ import { AdminhomeComponent } from './components/adminhome/adminhome.component';
 import { IPOListComponent } from './components/userhome/ipo-list/ipo-list.component';
 import { CompareCompanyComponent } from './components/userhome/compare-company/compare-company.component';
 import { CompareSectorComponent } from './components/userhome/compare-sector/compare-sector.component';
+import { ImportDataComponent } from './components/adminhome/import-data/import-data.component';
+import { ManageCompanyComponent } from './components/adminhome/manage-company/manage-company.component';
+import { ManageExchangeComponent } from './components/adminhome/manage-exchange/manage-exchange.component';
+import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodetails/update-ipodetails.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { CompareSectorComponent } from './components/userhome/compare-sector/com
     AdminhomeComponent,
     IPOListComponent,
     CompareCompanyComponent,
-    CompareSectorComponent
+    CompareSectorComponent,
+    ImportDataComponent,
+    ManageCompanyComponent,
+    ManageExchangeComponent,
+    UpdateIPODetailsComponent
   ],
   imports: [
     BrowserModule,
