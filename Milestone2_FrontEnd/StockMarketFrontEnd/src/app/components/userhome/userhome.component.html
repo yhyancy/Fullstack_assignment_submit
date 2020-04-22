@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">IPO List</a>
+    <a class="navbar-brand" [routerLink]="[ '/userhome/ipolist' ]">IPO List</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,11 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Compare company </a>
+                <a class="nav-link" [routerLink]="[ '/userhome/compare-company' ]">Compare company </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Compare sector</a>
+                <a class="nav-link" [routerLink]="[ '/userhome/compare-sector' ]">Compare sector</a>
             </li>
         </ul>
     </div>
 </div>
+<router-outlet></router-outlet>
