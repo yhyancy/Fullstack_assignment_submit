@@ -9,7 +9,11 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { IPOListComponent } from './components/userhome/ipo-list/ipo-list.component';
 import { CompareCompanyComponent } from './components/userhome/compare-company/compare-company.component';
 import { CompareSectorComponent } from './components/userhome/compare-sector/compare-sector.component';
-
+import { AdminhomeComponent } from './components/adminhome/adminhome.component';
+import { ImportDataComponent } from './components/adminhome/import-data/import-data.component';
+import { ManageCompanyComponent } from './components/adminhome/manage-company/manage-company.component';
+import { ManageExchangeComponent } from './components/adminhome/manage-exchange/manage-exchange.component';
+import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodetails/update-ipodetails.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,6 +24,15 @@ const routes: Routes = [
       { path: 'compare-company', component: CompareCompanyComponent },
       { path: 'compare-sector', component: CompareSectorComponent },
       { path: '**', redirectTo: 'ipolist' }
+    ]
+  },
+  {
+    path: 'adminhome', component: AdminhomeComponent, children: [
+      { path: 'import-data', component: ImportDataComponent },
+      { path: 'manage-company', component: ManageCompanyComponent },
+      { path: 'manage-exchange', component: ManageExchangeComponent },
+      { path: 'update-ipodetails', component: UpdateIPODetailsComponent },
+      { path: '**', redirectTo: 'import-data' }
     ]
   },
   { path: 'changepassword', component: ChangePasswordComponent },
