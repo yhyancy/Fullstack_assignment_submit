@@ -1,16 +1,18 @@
 <div class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="[ '/userhome/ipolist' ]">IPO List</a>
+    <a class="navbar-brand" [routerLink]="[ '/userhome/ipolist' ]" routerLinkActive="active">IPO List</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" [routerLink]="[ '/userhome/compare-company' ]">Compare company </a>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="[ '/userhome/compare-company' ]" routerLinkActive="active">Compare
+                    company </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="[ '/userhome/compare-sector' ]">Compare sector</a>
+                <a class="nav-link" [routerLink]="[ '/userhome/compare-sector' ]" routerLinkActive="active">Compare
+                    sector</a>
             </li>
         </ul>
     </div>
