@@ -1,21 +1,24 @@
-<form>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
     <div class="form-group col-md-4">
-        <label for="exampleInputEmail1">User name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
+        <label for="inputUsername">User name</label>
+        <input type="text" ngModel name="username" class="form-control" id="inputUsername">
     </div>
     <div class="form-group col-md-4">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="inputPassword">Password</label>
+        <input type="password" ngModel name="password" class="form-control" id="inputPassword">
     </div>
     <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Remeber me</label>
+        <input type="checkbox" class="form-check-input" id="remeberme">
+        <label class="form-check-label" for="remeberme">Remeber me</label>
     </div>
-    <button type="submit" class="btn btn-primary" [routerLink]="[ '/userhome' ]">Sign in</button>
-    <button type="submit" class="btn btn-primary" [routerLink]="[ '/adminhome' ]">Sign in</button>
+    <button type="submit" class="btn btn-success">Sign in</button>
+
+    <!-- <button type="submit" class="btn btn-success" [routerLink]="[ '/userhome' ]">Sign in</button> -->
+    <!-- <button type="submit" class="btn btn-success" [routerLink]="[ '/adminhome' ]">Sign in</button> -->
 
     <br>
-    <label for="exampleInputEmail1">New to Stock Market? <a [routerLink]="[ '/signup' ]">Create an
-            accout</a></label>
+    <label for="signup">New to Stock Market?
+        <a [routerLink]="[ '/signup' ]">Create an accout</a>
+    </label>
 </form>
+{{ myForm.value | json }}

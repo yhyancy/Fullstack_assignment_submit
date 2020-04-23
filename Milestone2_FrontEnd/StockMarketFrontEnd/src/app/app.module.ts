@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms'
+// import { ReactiveFormsModule } from '@angular/forms' //引入响应式表单
 
 
 import { AppComponent } from './app.component';
@@ -44,6 +45,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     AppRoutingModule,
     NgbModule,
     FormsModule
+    // ReactiveFormsModule //声明响应式表单
   ],
   providers: [],
   bootstrap: [AppComponent]
