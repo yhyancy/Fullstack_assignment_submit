@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms' //引入表单-实现模板表单验证以及表单双选购绑定
 // import { ReactiveFormsModule } from '@angular/forms' //引入响应式表单
+import { UserService } from './services/user.service' //引入服务-实现点击sign in,post提交数据
+import { HttpClientModule } from '@angular/common/http'; // 数据交互
+
 
 
 import { AppComponent } from './app.component';
@@ -47,7 +50,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     FormsModule
     // ReactiveFormsModule //声明响应式表单
   ],
-  providers: [],
+  providers: [UserService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
