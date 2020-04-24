@@ -1,5 +1,5 @@
 <!-- 模板变量表单 -->
-<form #myForm="ngForm" (ngSubmit)="onSignin(myForm.value)" novalidate>
+<form #myForm="ngForm" (ngSubmit)="onSignin(myForm.value, myForm.valid)" novalidate>
     <div class="form-group col-md-4">
         <label for="inputUsername">User name</label>
         <input type="text" ngModel name="username" #username="ngModel" required class="form-control" id="inputUsername">
