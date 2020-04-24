@@ -1,5 +1,5 @@
 <!-- 模板变量表单 -->
-<form #myForm="ngForm" (ngSubmit)="onSignin(myForm.value, myForm.valid)" novalidate>
+<form #myForm="ngForm" (ngSubmit)="onSignin(myForm.value, myForm.form.valid)" novalidate>
     <div class="form-group col-md-4">
         <label for="inputUsername">User name</label>
         <input type="text" ngModel name="username" #username="ngModel" required class="form-control" id="inputUsername">
@@ -30,7 +30,7 @@
         <input type="checkbox" class="form-check-input" id="remeberme">
         <label class="form-check-label" for="remeberme">Remeber me</label>
     </div>
-    <button type="submit" class="btn btn-success">Sign in</button>
+    <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Sign in</button>
 
     <!-- <button type="submit" class="btn btn-success" [routerLink]="[ '/userhome' ]">Sign in</button> -->
     <!-- <button type="submit" class="btn btn-success" [routerLink]="[ '/adminhome' ]">Sign in</button> -->
@@ -41,3 +41,4 @@
     </label>
 </form>
 {{ myForm.value | json }}
+{{ myForm.valid}}

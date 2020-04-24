@@ -17,16 +17,11 @@ export class LoginComponent implements OnInit {
     console.log(value)
     console.log(valid)
     // 验证登录
-    if (!valid) {
-      alert('请检查用户名和密码');
-    }
-    else {
+    if (valid) {
       //登录成功
       // TODO: 根据role来判断跳转的URL
       this.router.navigate(['/userhome']);
       // TODO: 向后台发送数据
-
-
     }
   }
 
