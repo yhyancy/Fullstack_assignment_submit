@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http'; // 数据交互
 
 
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HearderComponent } from './components/hearder/hearder.component';
@@ -47,10 +48,12 @@ import { LogoutComponent } from './components/logout/logout.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
     // ReactiveFormsModule //声明响应式表单
+    HttpClientModule
+
   ],
-  providers: [UserService, HttpClientModule],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
