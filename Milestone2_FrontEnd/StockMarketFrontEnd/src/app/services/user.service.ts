@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'; //post数据交互
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment' //root url
 @Injectable({
   providedIn: 'root'
 })
