@@ -3,7 +3,7 @@
 <form #myForm="ngForm" (ngSubmit)="onLogin(myForm.value, myForm.form.valid)" novalidate>
     <!-- 后台校验登录 -->
     <p *ngFor="let alert of alerts">
-        <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+        <ngb-alert [type]="alert.type">{{ alert.message }}</ngb-alert>
     </p>
 
     <div class="form-group col-md-4">
