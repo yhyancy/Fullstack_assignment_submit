@@ -23,18 +23,28 @@
     </div>
     <div class="form-group col-md-4">
         <label for="inputMobile">Mobile</label>
-        <input type="text" ngModel name="mobile" #mobile="ngModel" required class="form-control" id="inputMobile">
+        <input type="text" ngModel name="mobile" #mobile="ngModel" mobile required minlength="11" maxlength="11"
+            class="form-control" id="inputMobile">
     </div>
     <!-- Mobile提示信息 -->
     <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert alert-danger col-md-4">
         <div *ngIf="mobile.errors.required">
             Mbile is required.
         </div>
+        <div *ngIf="mobile.errors.minlength">
+            Mobile must be 11 digits.
+        </div>
+        <div *ngIf="mobile.errors.mobile">
+            Mobile number must start with 13 ,15, 17, 18.
+        </div>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" ngModelGroup="passwordsGroup">
         <label for="inputPassword">Password</label>
         <input type="password" ngModel name="password" #password="ngModel" required minlength="6" class="form-control"
             id="inputPassword">
+        <label for="confirmPassword">Comfirm password</label>
+        <input type="password" ngModel name="pwconfirm" #pwconfirm="ngModel" required minlength="6" class="form-control"
+            id="confirmPassword">
     </div>
     <!-- Password提示信息 -->
     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger col-md-4">

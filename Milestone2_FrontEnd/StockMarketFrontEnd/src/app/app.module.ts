@@ -25,6 +25,7 @@ import { ManageExchangeComponent } from './components/adminhome/manage-exchange/
 import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodetails/update-ipodetails.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { MobileValidatorDirective } from './directives/mobile-validator.directive';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     ManageExchangeComponent,
     UpdateIPODetailsComponent,
     ChangePasswordComponent,
-    LogoutComponent
+    LogoutComponent,
+    MobileValidatorDirective
   ],
   imports: [
     BrowserModule,
