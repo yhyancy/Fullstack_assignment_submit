@@ -22,11 +22,9 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(public router: Router, public userService: UserService) {
-    // constructor(public router: Router) {
-
     this.reset();
 
-  } //声明路由
+  }
 
   ngOnInit(): void {
   }
