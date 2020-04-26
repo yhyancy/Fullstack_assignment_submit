@@ -44,8 +44,14 @@ export class LoginComponent implements OnInit {
         if (1 == this.result.isAuth) {
           console.log('登录成功')
           this.alerts.push({ type: 'success', message: 'username or password error.' });
-          // TODO: 根据role来判断跳转的URL
-          this.router.navigate(['/userhome']);
+          //  根据role来判断跳转的URL
+          if (this.result.uType == "user") {
+            this.router.navigate(['/userhome']);
+          }
+          if (this.result.uType == "admin") {
+            this.router.navigate(['/adminhome']);
+          }
+
         }
         else if (0 == this.result.isAuth) {
           console.log('用户不存在')
