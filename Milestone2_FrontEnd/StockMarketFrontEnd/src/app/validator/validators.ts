@@ -14,3 +14,10 @@ export function equalValidator(group: FormControl): any {
     let valid: boolean = (password.value === pwconfirm.value)
     return valid ? null : { equal: true }
 }
+
+//校验 sign up email
+export function emailValidator(control: FormControl): any {
+    let reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
+    let valid = reg.test(control.value)
+    return valid ? null : { email: true }
+}

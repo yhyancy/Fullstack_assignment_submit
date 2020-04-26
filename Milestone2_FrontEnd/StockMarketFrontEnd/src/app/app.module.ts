@@ -27,6 +27,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { LogoutComponent } from './components/logout/logout.component';
 import { MobileValidatorDirective } from './directives/mobile-validator.directive';
 import { EqualValidatorDirective } from './directives/equal-validator.directive';
+import { EmailValidatorDirective } from './directives/email-validator.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
     ChangePasswordComponent,
     LogoutComponent,
     MobileValidatorDirective,
-    EqualValidatorDirective
+    EqualValidatorDirective,
+    EmailValidatorDirective
   ],
   imports: [
     BrowserModule,
