@@ -12,4 +12,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogin(value: any, valid: boolean) {
+
+  }
+
 }
