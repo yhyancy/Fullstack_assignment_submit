@@ -34,11 +34,12 @@
         <div *ngIf="mobile.errors.minlength">
             Mobile must be 11 digits.
         </div>
+        <!-- 指令校验提示信息 -->
         <div *ngIf="mobile.errors.mobile">
             The number must begin with 13 ,15, 17, 18.
         </div>
     </div>
-    <div class="form-group col-md-4" ngModelGroup="passwordsGroup">
+    <div class="form-group col-md-4" ngModelGroup="passwordsGroup" #passwordsGroup="ngModelGroup" equal>
         <label for="inputPassword">Password</label>
         <input type="password" ngModel name="password" #password="ngModel" required minlength="6" class="form-control"
             id="inputPassword">
@@ -55,7 +56,13 @@
             Password must be at least 6 characters long.
         </div>
     </div>
-
+    <!-- 指令验证 password and pwconfirm -->
+    <div *ngIf="passwordsGroup.invalid && (passwordsGroup.dirty || passwordsGroup.touched)"
+        class="alert alert-danger col-md-4">
+        <div *ngIf="passwordsGroup.errors.equal">
+            Passwords are inconsistent.
+        </div>
+    </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="remeberme">
         <label class="form-check-label" for="remeberme">Remeber me</label>

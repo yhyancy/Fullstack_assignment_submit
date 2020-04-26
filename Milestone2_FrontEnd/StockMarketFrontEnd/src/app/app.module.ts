@@ -26,6 +26,7 @@ import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodeta
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { MobileValidatorDirective } from './directives/mobile-validator.directive';
+import { EqualValidatorDirective } from './directives/equal-validator.directive';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MobileValidatorDirective } from './directives/mobile-validator.directiv
     UpdateIPODetailsComponent,
     ChangePasswordComponent,
     LogoutComponent,
-    MobileValidatorDirective
+    MobileValidatorDirective,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,
