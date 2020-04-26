@@ -2,13 +2,13 @@
 
 <form #myForm="ngForm" (ngSubmit)="onLogin(myForm.value, myForm.form.valid)" novalidate>
     <!-- 后台校验登录 -->
-    <p *ngFor="let alert of alerts">
+    <p *ngFor="let alert of alerts" class="col-md-4">
         <ngb-alert [type]="alert.type">{{ alert.message }}</ngb-alert>
     </p>
 
     <div class="form-group col-md-4">
         <label for="inputUsername">User name</label>
-        <input type="text" ngModel name="username" #username="ngModel" required class="form-control" id="inputUsername">
+        <input type="text" ngModel name="userName" #username="ngModel" required class="form-control" id="inputUsername">
     </div>
     <!-- 提示信息 -->
     <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger col-md-4">
@@ -19,7 +19,7 @@
 
     <div class="form-group col-md-4">
         <label for="inputPassword">Password</label>
-        <input type="password" ngModel name="password" #password="ngModel" required minlength="6" class="form-control"
+        <input type="password" ngModel name="passWord" #password="ngModel" required minlength="6" class="form-control"
             id="inputPassword">
     </div>
     <!-- 提示信息 -->
