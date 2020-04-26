@@ -57,6 +57,7 @@
         </div>
     </div>
     <!-- 指令验证 password and pwconfirm -->
+    <!-- TODO:解决在输入完conform password后 才会触发这个error message -->
     <div *ngIf="passwordsGroup.invalid && (passwordsGroup.dirty || passwordsGroup.touched)"
         class="alert alert-danger col-md-4">
         <div *ngIf="passwordsGroup.errors.equal">
