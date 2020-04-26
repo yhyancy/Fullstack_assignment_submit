@@ -11,4 +11,8 @@ export class UserService {
     const httpOtions = { headers: new HttpHeaders({ 'content-Type': 'application/json' }) };
     return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(user), httpOtions);
   }
+
+  public get currentUserToken(): string {
+    return sessionStorage.getItem('token');
+  }
 }

@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
         this.result = data
         if (1 == this.result.isAuth) {
           console.log('登录成功')
+          sessionStorage.setItem('token', this.result.token)
           this.alerts.push({ type: 'success', message: 'username or password error.' });
           //  根据role来判断跳转的URL
           if (this.result.uType == "user") {
