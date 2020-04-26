@@ -66,5 +66,8 @@ export class LoginComponent implements OnInit {
   reset() {
     this.alerts = Array.from(ALERTS);
   }
+  close(alert: Alert) {
+    this.alerts.splice(this.alerts.indexOf(alert), 1);
+  }
 
 }
