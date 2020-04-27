@@ -1,1 +1,62 @@
-<p>compare-company works!</p>
+<h2>Compare Company </h2>
+<form>
+    <!-- Select Company/Sector -->
+    <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">Select Company/Sector:</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option value="company">Company</option>
+            <option value="sector">Sector</option>
+        </select>
+    </div>
+    <!-- Select Stock Exchange -->
+    <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">Select Stock Exchange:</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option value="bse">BSE</option>
+            <option value="nse">NSE</option>
+        </select>
+    </div>
+    <!-- Company Code -->
+    <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">Company Code:</label>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" name="" placeholder="Company Code">
+            </div>
+        </div>
+    </div>
+    <!-- Specific Time Range -->
+    <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">Specific Time Range:</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option value="indicate">Indicate desired date range</option>
+            <option value="select">Select period</option>
+        </select>
+    </div>
+    <!-- From Period -->
+    <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">From Period:</label>
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                    #d="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- To Period -->
+    <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">To Period:</label>
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+                    #d="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
