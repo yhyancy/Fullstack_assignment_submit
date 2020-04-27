@@ -75,11 +75,19 @@ export class IPOListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // 从后台获取IPO信息
+    this.getIpos()
+  }
+  getIpos() {
+
   }
   get IPOList(): IPO[] {
     return IPOlist
       .map((IPO, i) => ({ id: i + 1, ...IPO }))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
-
+// TODO: 未完成
+  currentIPO(key) {
+    console.log(key)
+  }
 }
