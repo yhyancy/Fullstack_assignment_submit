@@ -51,8 +51,8 @@ export class LoginComponent implements OnInit {
           //存储cookie, 过期时间两个小时 2*60*60*1000
           this.cookieService.set('UNAME', this.result.uName, new Date(new Date().getTime() + this.time));
           // TODO: 刷新页面
-          location.reload()
-          console.log('刷新页面')
+          // location.reload()
+          // console.log('刷新页面')
           this.alerts.push({ type: 'success', message: 'username or password error.' });
           //  根据role来判断跳转的URL
           if (this.result.uType == "user") {
