@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
   time: number = 2 * 60 * 60 * 1000;// cookie过期时间两个小时 2*60*60*1000
   constructor(public router: Router, public userService: UserService, private cookieService: CookieService) {
     this.reset();
-
-
   }
 
   ngOnInit(): void {
@@ -50,9 +48,11 @@ export class LoginComponent implements OnInit {
         if (1 == this.result.isAuth) {
           console.log('登录成功')
           sessionStorage.setItem('token', this.result.token)
-          //TODO: 后台传值多一个 username
           //存储cookie, 过期时间两个小时 2*60*60*1000
           this.cookieService.set('UNAME', this.result.uName, new Date(new Date().getTime() + this.time));
+          // TODO: 刷新页面
+          location.reload()
+          console.log('刷新页面')
           this.alerts.push({ type: 'success', message: 'username or password error.' });
           //  根据role来判断跳转的URL
           if (this.result.uType == "user") {
