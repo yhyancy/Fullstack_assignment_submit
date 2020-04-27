@@ -21,8 +21,9 @@ export class LoginComponent implements OnInit {
 
   public result: any = { //登录后接收后台返回的值
     token: '',
+    uName: '',
     isAuth: '', //1 登录成功 0 用户不存在 -1 密码错误
-    uType: ''
+    uType: '' // user, admin
   };
   time: number = 2 * 60 * 60 * 1000;// cookie过期时间两个小时 2*60*60*1000
   constructor(public router: Router, public userService: UserService, private cookieService: CookieService) {
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('token', this.result.token)
           //TODO: 后台传值多一个 username
           //存储cookie, 过期时间两个小时 2*60*60*1000
-          this.cookieService.set('UNAME', value.userName, new Date(new Date().getTime() + this.time));
+          this.cookieService.set('UNAME', this.result.uName, new Date(new Date().getTime() + this.time));
           this.alerts.push({ type: 'success', message: 'username or password error.' });
           //  根据role来判断跳转的URL
           if (this.result.uType == "user") {
