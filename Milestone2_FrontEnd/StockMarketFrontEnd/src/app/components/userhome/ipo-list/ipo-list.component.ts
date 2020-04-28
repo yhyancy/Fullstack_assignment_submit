@@ -12,7 +12,7 @@ const IPOlist: IPO[] = [
     pricePerShare: 356.23,
     totalNumber: '1356.23',
     openDateTime: new Date(),
-    remarks: 'REMARK1'
+    remark: 'REMARK1'
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const IPOlist: IPO[] = [
     pricePerShare: 356.23,
     totalNumber: '1356.23',
     openDateTime: new Date(),
-    remarks: 'REMARK1'
+    remark: 'REMARK1'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const IPOlist: IPO[] = [
     pricePerShare: 356.23,
     totalNumber: '1356.23',
     openDateTime: new Date(),
-    remarks: 'REMARK1'
+    remark: 'REMARK1'
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const IPOlist: IPO[] = [
     pricePerShare: 356.23,
     totalNumber: '1356.23',
     openDateTime: new Date(),
-    remarks: 'REMARK1'
+    remark: 'REMARK1'
   }
   ,
   {
@@ -49,7 +49,7 @@ const IPOlist: IPO[] = [
     pricePerShare: 356.23,
     totalNumber: '1356.23',
     openDateTime: new Date(),
-    remarks: 'REMARK1'
+    remark: 'REMARK1'
   }
   ,
   {
@@ -59,7 +59,7 @@ const IPOlist: IPO[] = [
     pricePerShare: 356.23,
     totalNumber: '1356.23',
     openDateTime: new Date(),
-    remarks: 'REMARK1'
+    remark: 'REMARK1'
   }
 
 ];

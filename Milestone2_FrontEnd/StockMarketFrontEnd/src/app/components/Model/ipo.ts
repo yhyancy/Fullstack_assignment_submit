@@ -5,5 +5,5 @@ export class IPO {
     pricePerShare: number;
     totalNumber: string;
     openDateTime: Date;
-    remarks: string;
+    remark: string;
 }
