@@ -56,7 +56,6 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     FormsModule,
     // ReactiveFormsModule //声明响应式表单
     HttpClientModule
-
   ],
   providers: [UserService, CookieService],
   bootstrap: [AppComponent]

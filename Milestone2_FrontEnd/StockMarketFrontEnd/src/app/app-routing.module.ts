@@ -42,8 +42,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), NgbModule],
-
+  // imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', enableTracing: true }), NgbModule],// 浏览器查看路由事件日志
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }), NgbModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
