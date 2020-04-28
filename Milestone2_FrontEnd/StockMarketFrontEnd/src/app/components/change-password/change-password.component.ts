@@ -11,5 +11,9 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  changePwd(value: any, valid: boolean) {
+    alert('修改密码成功')
+
+  }
 
 }

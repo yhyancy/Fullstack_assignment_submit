@@ -15,6 +15,7 @@ export function equalValidator(group: FormControl): any {
     if (password && pwconfirm) {
         valid = (password.value === pwconfirm.value)
     }
+
     return valid ? null : { equal: true }
 }
 
