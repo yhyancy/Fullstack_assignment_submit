@@ -27,7 +27,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { MobileValidatorDirective } from './directives/mobile-validator.directive';
 import { EqualValidatorDirective } from './directives/equal-validator.directive';
 import { EmailValidatorDirective } from './directives/email-validator.directive';
-
+import { IPOService } from './services/ipo.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +57,7 @@ import { EmailValidatorDirective } from './directives/email-validator.directive'
     // ReactiveFormsModule //声明响应式表单
     HttpClientModule
   ],
-  providers: [UserService, CookieService],
+  providers: [UserService, CookieService, IPOService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
