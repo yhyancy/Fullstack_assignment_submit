@@ -11,7 +11,10 @@ export function MobileValidator(control: FormControl): any {
 export function equalValidator(group: FormControl): any {
     let password: FormControl = group.get("password") as FormControl
     let pwconfirm: FormControl = group.get("pwconfirm") as FormControl
-    let valid: boolean = (password.value === pwconfirm.value)
+    let valid: boolean = false
+    if (password && pwconfirm) {
+        valid = (password.value === pwconfirm.value)
+    }
     return valid ? null : { equal: true }
 }
 
