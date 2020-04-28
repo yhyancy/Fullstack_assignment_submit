@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPO } from '../../Model/ipo'
 import { IPOService } from '../../../services/ipo.service'
-
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 const IPOlist: IPO[] = [
@@ -66,7 +66,8 @@ const IPOlist: IPO[] = [
 @Component({
   selector: 'app-ipo-list',
   templateUrl: './ipo-list.component.html',
-  styleUrls: ['./ipo-list.component.scss']
+  styleUrls: ['./ipo-list.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 
 export class IPOListComponent implements OnInit {
@@ -74,8 +75,11 @@ export class IPOListComponent implements OnInit {
   pageSize = 4;
   collectionSize = IPOlist.length;
   // public IPOList:any; // TODO:用于接收从后台的传来的数据
-
-  constructor(public ipoService: IPOService) { }
+  public currentIPO: any = {}
+  constructor(public ipoService: IPOService, config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
 
   ngOnInit(): void {
     // TODO: 从后台获取IPO信息
@@ -87,8 +91,16 @@ export class IPOListComponent implements OnInit {
   }
 
   // TODO: 未完成
-  currentIPO(key) {
-    console.log(key) 
+  // currentIPO(key) {
+  //   console.log(key)
+  // }
+
+  // open IPO Detail,获取当前行的数据
+  open(content: any, value: any) {
+
+    this.currentIPO = value
+    console.log('currentIPO', this.currentIPO)
+    this.modalService.open(content);
   }
 
   // Pagination
