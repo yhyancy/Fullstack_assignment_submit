@@ -73,16 +73,22 @@ export class IPOListComponent implements OnInit {
   page = 1;
   pageSize = 4;
   collectionSize = IPOlist.length;
-  // public IPOList:any; //用于接收从后台的传来的数据
+  // public IPOList:any; // TODO:用于接收从后台的传来的数据
 
   constructor(public ipoService: IPOService) { }
 
   ngOnInit(): void {
-    // 从后台获取IPO信息
+    // TODO: 从后台获取IPO信息
     this.getIpos()
   }
   getIpos() {
+    //TODO:
     // this.IPOList= this.ipoService.getIPOs()
+  }
+
+  // TODO: 未完成
+  currentIPO(key) {
+    console.log(key) 
   }
 
   // Pagination
@@ -90,9 +96,5 @@ export class IPOListComponent implements OnInit {
     return IPOlist
       .map((IPO, i) => ({ id: i + 1, ...IPO }))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-  }
-  // TODO: 未完成
-  currentIPO(key) {
-    console.log(key)
   }
 }
