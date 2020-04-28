@@ -9,6 +9,7 @@ import { cookieService } from '../../services/cookie.service' // 引入cookie se
 })
 export class HearderComponent implements OnInit {
   public UNAME_COOKIE: Boolean
+  public userName: String
   navigationSubscription;
   constructor(private router: Router, private cookieService: cookieService) {
     // 实现重新读取cookie, 刷新页面
@@ -23,9 +24,10 @@ export class HearderComponent implements OnInit {
 
   }
   init() {
-    console.log('get UNAME cookie', this.cookieService.getUnameCookie())
+    // header下拉框动态显示为username
+    this.userName = this.cookieService.getUnameCookie()
     // 判断UNAME Cookie是否存在，如果存在，显示ME, 如果不存在，显示SIGN IN
-    if (this.cookieService.getUnameCookie()) {
+    if (this.userName) {
       this.UNAME_COOKIE = true
     } else {
       this.UNAME_COOKIE = false
