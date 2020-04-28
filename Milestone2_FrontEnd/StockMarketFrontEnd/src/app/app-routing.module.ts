@@ -14,7 +14,7 @@ import { ImportDataComponent } from './components/adminhome/import-data/import-d
 import { ManageCompanyComponent } from './components/adminhome/manage-company/manage-company.component';
 import { ManageExchangeComponent } from './components/adminhome/manage-exchange/manage-exchange.component';
 import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodetails/update-ipodetails.component';
-
+import { LoginGuard } from './guard/login.guard' //路由守卫
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'compare-company', component: CompareCompanyComponent },
       { path: 'compare-sector', component: CompareSectorComponent },
       { path: '**', redirectTo: 'ipolist' }
-    ]
+    ], canActivate: [LoginGuard]
   },
   {
     path: 'adminhome', component: AdminhomeComponent, children: [
@@ -33,7 +33,7 @@ const routes: Routes = [
       { path: 'manage-exchange', component: ManageExchangeComponent },
       { path: 'update-ipodetails', component: UpdateIPODetailsComponent },
       { path: '**', redirectTo: 'import-data' }
-    ]
+    ], canActivate: [LoginGuard]
   },
   { path: 'changepassword', component: ChangePasswordComponent },
   { path: 'logout', component: LogoutComponent }
@@ -44,6 +44,7 @@ const routes: Routes = [
 @NgModule({
   // imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', enableTracing: true }), NgbModule],// 浏览器查看路由事件日志
   imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' }), NgbModule],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LoginGuard]
 })
 export class AppRoutingModule { }
