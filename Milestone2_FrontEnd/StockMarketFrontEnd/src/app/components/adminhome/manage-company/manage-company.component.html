@@ -84,9 +84,9 @@
     </div>
     <div class="modal-body">
         <div class="form-group">
-            <span><label for="IPOID">Company Code</label>
-                <input type="text" class="form-control" id="IPOID" name="exchangeid"
-                    [(ngModel)]="currentCompany.companyCode" #IPOID="ngModel"></span>
+            <span><label for="companyCode">Company Code</label>
+                <input type="text" class="form-control" id="companyCode" name="companyCode"
+                    [(ngModel)]="currentCompany.companyCode" #companyCode="ngModel"></span>
         </div>
         <div class="form-group">
             <span><label for="CompanyName">Company Name</label>
@@ -94,45 +94,45 @@
                     [(ngModel)]="currentCompany.companyName" #CompanyName="ngModel"></span>
         </div>
         <div class="form-group">
-            <span><label for="stockExchange">Turnover($)</label>
-                <input type="text" class="form-control" id="stockExchange" name="stockExchange"
-                    [(ngModel)]="currentCompany.turnover" #stockExchange="ngModel"></span>
+            <span><label for="turnover">Turnover($)</label>
+                <input type="text" class="form-control" id="turnover" name="turnover"
+                    [(ngModel)]="currentCompany.turnover" #turnover="ngModel"></span>
         </div>
         <div class="form-group">
-            <span><label for="pricepershare">CEO</label>
-                <input type="text" class="form-control" id="pricepershare" name="pricepershare"
-                    [(ngModel)]="currentCompany.ceo" #pricepershare="ngModel"></span>
+            <span><label for="ceo">CEO</label>
+                <input type="text" class="form-control" id="ceo" name="ceo" [(ngModel)]="currentCompany.ceo"
+                    #ceo="ngModel"></span>
         </div>
         <div class="form-group">
-            <span><label for="totalshares">Board of Directors</label>
-                <input type="text" class="form-control" id="totalshares" name="totalshares"
-                    [(ngModel)]="currentCompany.boardofdirectors" #totalshares="ngModel"></span>
+            <span><label for="boardofdirectors">Board of Directors</label>
+                <input type="text" class="form-control" id="boardofdirectors" name="boardofdirectors"
+                    [(ngModel)]="currentCompany.boardofdirectors" #boardofdirectors="ngModel"></span>
         </div>
         <div class="form-group">
-            <span><label for="opendatetime">Listed in Stock Exchange</label>
-                <input type="text" class="form-control" id="opendatetime" name="opendatetime"
-                    [(ngModel)]="currentCompany.listedinse" #opendatetime="ngModel"
+            <span><label for="listedinse">Listed in Stock Exchange</label>
+                <input type="text" class="form-control" id="listedinse" name="listedinse"
+                    [(ngModel)]="currentCompany.listedinse" #listedinse="ngModel"
                     placeholder="YYYY-mm-dd hh:mm:ss"></span>
         </div>
         <div class="form-group">
-            <span><label for="remark">Sector Name</label>
-                <input type="text" class="form-control" id="remark" name="remark"
-                    [(ngModel)]="currentCompany.sectorName" #remark="ngModel"></span>
+            <span><label for="sectorName">Sector Name</label>
+                <input type="text" class="form-control" id="sectorName" name="sectorName"
+                    [(ngModel)]="currentCompany.sectorName" #sectorName="ngModel"></span>
         </div>
         <div class="form-group">
-            <span><label for="remark">Brief Writeup</label>
-                <input type="text" class="form-control" id="remark" name="remark"
-                    [(ngModel)]="currentCompany.brifewriteup" #remark="ngModel"></span>
+            <span><label for="brifewriteup">Brief Writeup</label>
+                <input type="text" class="form-control" id="brifewriteup" name="brifewriteup"
+                    [(ngModel)]="currentCompany.brifewriteup" #brifewriteup="ngModel"></span>
         </div>
         <div class="form-group">
-            <span><label for="remark">Stock Code</label>
-                <input type="text" class="form-control" id="remark" name="remark" [(ngModel)]="currentCompany.stockCode"
-                    #remark="ngModel"></span>
+            <span><label for="stockCode">Stock Code</label>
+                <input type="text" class="form-control" id="stockCode" name="stockCode"
+                    [(ngModel)]="currentCompany.stockCode" #stockCode="ngModel"></span>
         </div>
         <div class="form-group">
-            <span><label for="remark">Company Status</label>
-                <input type="text" class="form-control" id="remark" name="remark"
-                    [(ngModel)]="currentCompany.companyStatus" #remark="ngModel"></span>
+            <span><label for="companyStatus">Company Status</label>
+                <input type="text" class="form-control" id="companyStatus" name="companyStatus"
+                    [(ngModel)]="currentCompany.companyStatus" #companyStatus="ngModel"></span>
         </div>
     </div>
     <div class="modal-footer">
