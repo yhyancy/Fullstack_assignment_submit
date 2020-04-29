@@ -56,7 +56,7 @@
                     <ngb-highlight [result]="item.companyStatus" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-info">Edit</button>
+                    <button type="button" class="btn btn-info" (click)="open(content,item)">Edit</button>
                 </td>
             </tr>
         </tbody>
@@ -72,5 +72,70 @@
             <option [ngValue]="6">6 items per page</option>
         </select>
     </div>
-
 </form>
+
+<!-- Manage Company  Modal -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Update an exchange</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <span><label for="IPOID">Company Code</label>
+                <input type="text" class="form-control" id="IPOID" name="exchangeid"
+                    [(ngModel)]="currentCompany.companyCode" #IPOID="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="CompanyName">Company Name</label>
+                <input type="text" class="form-control" id="CompanyName" name="CompanyName"
+                    [(ngModel)]="currentCompany.companyName" #CompanyName="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="stockExchange">Turnover($)</label>
+                <input type="text" class="form-control" id="stockExchange" name="stockExchange"
+                    [(ngModel)]="currentCompany.turnover" #stockExchange="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="pricepershare">CEO</label>
+                <input type="text" class="form-control" id="pricepershare" name="pricepershare"
+                    [(ngModel)]="currentCompany.ceo" #pricepershare="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="totalshares">Board of Directors</label>
+                <input type="text" class="form-control" id="totalshares" name="totalshares"
+                    [(ngModel)]="currentCompany.boardofdirectors" #totalshares="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="opendatetime">Listed in Stock Exchange</label>
+                <input type="text" class="form-control" id="opendatetime" name="opendatetime"
+                    [(ngModel)]="currentCompany.listedinse" #opendatetime="ngModel"
+                    placeholder="YYYY-mm-dd hh:mm:ss"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="remark">Sector Name</label>
+                <input type="text" class="form-control" id="remark" name="remark"
+                    [(ngModel)]="currentCompany.sectorName" #remark="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="remark">Brief Writeup</label>
+                <input type="text" class="form-control" id="remark" name="remark"
+                    [(ngModel)]="currentCompany.brifewriteup" #remark="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="remark">Stock Code</label>
+                <input type="text" class="form-control" id="remark" name="remark" [(ngModel)]="currentCompany.stockCode"
+                    #remark="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="remark">Company Status</label>
+                <input type="text" class="form-control" id="remark" name="remark"
+                    [(ngModel)]="currentCompany.companyStatus" #remark="ngModel"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-info" (click)="c('Save click')">Close</button>
+    </div>
+</ng-template>
