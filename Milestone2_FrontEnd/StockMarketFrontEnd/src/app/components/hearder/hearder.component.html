@@ -9,7 +9,8 @@
                 <button class="btn btn-outline-info" id="dropdownBasic1" ngbDropdownToggle>{{userName}}</button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                     <button ngbDropdownItem [routerLink]="['/changepassword']">Change Password</button>
-                    <button ngbDropdownItem [routerLink]="['/logout']">Log out</button>
+                    <!-- <button ngbDropdownItem [routerLink]="['/logout']">Log out</button> -->
+                    <button ngbDropdownItem (click)="OnLogout()">Log out</button>
                 </div>
             </div>
         </div>

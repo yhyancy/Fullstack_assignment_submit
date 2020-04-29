@@ -38,6 +38,10 @@ export class HearderComponent implements OnInit {
       this.navigationSubscription.unsubscribe();
     }
   }
-
+  OnLogout() {
+    //删除cookie
+    this.cookieService.delUnameCookie()
+    this.router.navigate(['/login'])
+  }
 
 }

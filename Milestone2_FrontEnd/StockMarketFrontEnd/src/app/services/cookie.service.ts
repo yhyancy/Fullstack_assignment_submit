@@ -12,4 +12,8 @@ export class cookieService {
     console.log(this.cookieService.get("UNAME"))
     return this.cookieService.get("UNAME")
   }
+
+  delUnameCookie() {
+    return this.cookieService.delete('UNAME')
+  }
 }
