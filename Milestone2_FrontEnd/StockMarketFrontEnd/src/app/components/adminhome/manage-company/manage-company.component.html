@@ -1,1 +1,76 @@
-<p>manage-company works!</p>
+<form>
+    <div class="form-group form-inline">
+        Full text search: <input class="form-control ml-2" type="text" name="searchTerm"
+            [(ngModel)]="service.searchTerm" />
+        <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Company Code</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Turnower($)</th>
+                <th scope="col">CEO</th>
+                <th scope="col">Board Of Direcitors</th>
+                <th scope="col">Listed in SE</th>
+                <th scope="col">Sector Name</th>
+                <th scope="col">Brief Writeup</th>
+                <th scope="col">Stock Change</th>
+                <th scope="col">Company Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of companyList$ | async">
+                <th scope="row">{{ item.id }}</th>
+                <td>
+                    <ngb-highlight [result]="item.companyCode" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.companyName" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.turnover" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.ceo" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.boardofdirectors" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.listedinse" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.sectorName" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.brifewriteup" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.stockCode" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="item.companyStatus" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+        </ngb-pagination>
+
+        <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+        </select>
+    </div>
+
+</form>
