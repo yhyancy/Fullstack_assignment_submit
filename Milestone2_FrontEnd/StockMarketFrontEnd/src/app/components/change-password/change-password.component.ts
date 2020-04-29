@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { cookieService } from '../../services/cookie.service' // 引入cookie service
 
 @Component({
   selector: 'app-change-password',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router'
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public cookieService: cookieService) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +20,7 @@ export class ChangePasswordComponent implements OnInit {
     // 前端发送新密码 给后端， 格式？
     // 后端返回200，前端redirect signin 页面，重新登录
     if (valid) {
+      this.cookieService.delUnameCookie()
       this.router.navigate(['/login'])
     }
   }
