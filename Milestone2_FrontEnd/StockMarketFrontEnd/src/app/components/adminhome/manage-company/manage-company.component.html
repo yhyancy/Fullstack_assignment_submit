@@ -4,7 +4,7 @@
             placeholder="Search" />
         <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
         <span><button type="button" class="btn btn-info"
-                (click)="open(content,{},'Add a new company')">Add</button></span>
+                (click)="openScrollableContent(AddCompany,{ })">Add</button></span>
     </div>
 
     <table class="table table-striped">
@@ -59,7 +59,7 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-info"
-                        (click)="open(content,item,'Update an exchange')">Edit</button>
+                        (click)="openScrollableContent(EditCompany,item)">Edit</button>
                 </td>
             </tr>
         </tbody>
@@ -77,10 +77,10 @@
     </div>
 </form>
 
-<!-- Manage Company  Modal -->
-<ng-template #content let-c="close" let-d="dismiss">
+<!-- Upadate Company  Modal -->
+<ng-template #EditCompany let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">{{ title }}</h4>
+        <h4 class="modal-title" id="modal-basic-title">Update an exchange</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -154,8 +154,106 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-info" (click)="c('Cross  click')">Close</button>
-        <!-- </div>
-    <div class="modal-footer"> -->
         <button type="button" class="btn btn-outline-info" (click)="c('Save click')">Save</button>
     </div>
+</ng-template>
+
+<!-- Add company -->
+<!-- company info -->
+<ng-template #AddCompany let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add a new company</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <span><label for="companyCode">Company Code</label>
+                <input type="text" class="form-control" id="companyCode" name="companyCode"
+                    [(ngModel)]="currentCompany.companyCode" #companyCode="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="CompanyName">Company Name</label>
+                <input type="text" class="form-control" id="CompanyName" name="CompanyName"
+                    [(ngModel)]="currentCompany.companyName" #CompanyName="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="turnover">Turnover($)</label>
+                <input type="text" class="form-control" id="turnover" name="turnover"
+                    [(ngModel)]="currentCompany.turnover" #turnover="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="ceo">CEO</label>
+                <input type="text" class="form-control" id="ceo" name="ceo" [(ngModel)]="currentCompany.ceo"
+                    #ceo="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="boardofdirectors">Board of Directors</label>
+                <input type="text" class="form-control" id="boardofdirectors" name="boardofdirectors"
+                    [(ngModel)]="currentCompany.boardofdirectors" #boardofdirectors="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <label for="listedinse">Listed in Stock Exchange</label>
+            <select class="form-control" id="selectSE">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <span><label for="sectorName">Sector Name</label>
+                <input type="text" class="form-control" id="sectorName" name="sectorName"
+                    [(ngModel)]="currentCompany.sectorName" #sectorName="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="brifewriteup">Brief Writeup</label>
+                <input type="text" class="form-control" id="brifewriteup" name="brifewriteup"
+                    [(ngModel)]="currentCompany.brifewriteup" #brifewriteup="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="stockCode">Stock Code</label>
+                <input type="text" class="form-control" id="stockCode" name="stockCode"
+                    [(ngModel)]="currentCompany.stockCode" #stockCode="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <label for="companyStatus">Company Status</label>
+            <select class="form-control" id="selectSE">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+        </div>
+
+        <!-- IPO  -->
+        <div class="form-group">
+            <h4>IPO Info</h4>
+            <span><label for="stockExchange">Stock Exchange</label>
+                <input type="text" class="form-control" id="stockExchange" name="stockExchange"
+                    [(ngModel)]="IpoInfo.stockExchange" #stockCode="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="pricePerShare">Price PerShare</label>
+                <input type="text" class="form-control" id="pricePerShare" name="pricePerShare"
+                    [(ngModel)]="IpoInfo.pricePerShare" #stockCode="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="totalNumber">Total Number</label>
+                <input type="text" class="form-control" id="totalNumber" name="totalNumber"
+                    [(ngModel)]="IpoInfo.totalNumber" #stockCode="ngModel"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="openDateTime">Open Date Time</label>
+                <input type="datetime" class="form-control" id="openDateTime" name="openDateTime"
+                    [(ngModel)]="IpoInfo.openDateTime" #stockCode="ngModel" placeholder="yyyy-MM-dd HH:mm:ss"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="ipoRemarks">Ipo Remarks</label>
+                <input type="text" class="form-control" id="ipoRemarks" name="ipoRemarks"
+                    [(ngModel)]="IpoInfo.IpoRemarks" #stockCode="ngModel"></span>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-info" (click)="c('Cross  click')">Close</button>
+            <button type="button" class="btn btn-outline-info" (click)="c('Save click')">Save</button>
+        </div>
+    </div>
+
 </ng-template>
