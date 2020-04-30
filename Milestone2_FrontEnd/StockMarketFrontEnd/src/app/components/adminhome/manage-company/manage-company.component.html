@@ -3,6 +3,8 @@
         Company Name: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"
             placeholder="Search" />
         <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+        <span><button type="button" class="btn btn-info"
+                (click)="open(content,{},'Add a new company')">Add</button></span>
     </div>
 
     <table class="table table-striped">
@@ -56,7 +58,8 @@
                     <ngb-highlight [result]="item.companyStatus" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-info" (click)="open(content,item)">Edit</button>
+                    <button type="button" class="btn btn-info"
+                        (click)="open(content,item,'Update an exchange')">Edit</button>
                 </td>
             </tr>
         </tbody>
@@ -77,7 +80,7 @@
 <!-- Manage Company  Modal -->
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Update an exchange</h4>
+        <h4 class="modal-title" id="modal-basic-title">{{ title }}</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>

@@ -20,6 +20,7 @@ export class ManageCompanyComponent implements OnInit {
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
   public currentCompany: any = {}
+  public title: any = {}
 
   constructor(public service: CompanyService, config: NgbModalConfig, private modalService: NgbModal) {
     this.companyList$ = service.companyList$;
@@ -44,9 +45,10 @@ export class ManageCompanyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  open(content: any, value: any) {
+  open(content: any, value: any, title: any) {
     this.currentCompany = value
     console.log(this.currentCompany)
+    this.title = title
     this.modalService.open(content);
   }
 
