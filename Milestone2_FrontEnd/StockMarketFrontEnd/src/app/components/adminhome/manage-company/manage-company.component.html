@@ -108,11 +108,18 @@
                 <input type="text" class="form-control" id="boardofdirectors" name="boardofdirectors"
                     [(ngModel)]="currentCompany.boardofdirectors" #boardofdirectors="ngModel"></span>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <span><label for="listedinse">Listed in Stock Exchange</label>
                 <input type="text" class="form-control" id="listedinse" name="listedinse"
                     [(ngModel)]="currentCompany.listedinse" #listedinse="ngModel"
                     placeholder="YYYY-mm-dd hh:mm:ss"></span>
+        </div> -->
+        <div class="form-group">
+            <label for="listedinse">Listed in Stock Exchange</label>
+            <select class="form-control" id="selectSE">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
         </div>
         <div class="form-group">
             <span><label for="sectorName">Sector Name</label>
@@ -129,13 +136,23 @@
                 <input type="text" class="form-control" id="stockCode" name="stockCode"
                     [(ngModel)]="currentCompany.stockCode" #stockCode="ngModel"></span>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <span><label for="companyStatus">Company Status</label>
                 <input type="text" class="form-control" id="companyStatus" name="companyStatus"
                     [(ngModel)]="currentCompany.companyStatus" #companyStatus="ngModel"></span>
+        </div> -->
+        <div class="form-group">
+            <label for="companyStatus">Company Status</label>
+            <select class="form-control" id="selectSE">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-info" (click)="c('Save click')">Close</button>
+        <button type="button" class="btn btn-outline-info" (click)="c('Cross  click')">Close</button>
+        <!-- </div>
+    <div class="modal-footer"> -->
+        <button type="button" class="btn btn-outline-info" (click)="c('Save click')">Save</button>
     </div>
 </ng-template>
