@@ -29,6 +29,8 @@ export class ManageCompanyComponent implements OnInit {
   }
 
   constructor(public service: CompanyService, config: NgbModalConfig, private modalService: NgbModal) {
+    // TODO: 从后台获取CompnayList
+    // this.companyList$ = service.getCompanyList;
     this.companyList$ = service.companyList$;
     this.total$ = service.total$;
     config.backdrop = 'static';
