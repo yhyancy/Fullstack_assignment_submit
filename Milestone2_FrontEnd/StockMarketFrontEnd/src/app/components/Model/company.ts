@@ -11,7 +11,7 @@ export class COMPANY {
     stockCode: string;
     companyStatus: string;
 }
-
+// for Manage Company
 export class COMPANY1 {
     companyCode: string;
     companyName: string;
