@@ -15,6 +15,7 @@ export class ManageExchangeComponent implements OnInit {
   pageSize = 4;
   collectionSize = ExchangeList.length;
   public exchangeList: EXCHANGE[] = ExchangeList
+  public currentExchange: EXCHANGE
 
   get countries(): EXCHANGE[] {
     return ExchangeList
@@ -29,7 +30,8 @@ export class ManageExchangeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  open(content) {
+  open(content, data) {
+    this.currentExchange = data
     this.modalService.open(content);
   }
 
