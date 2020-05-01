@@ -1,1 +1,67 @@
-<p>manage-exchange works!</p>
+<button class="btn  btn-info" (click)="open(addExchange)">Add</button>
+<!-- Add Exchange Modal -->
+<ng-template #addExchange let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Hello, World!</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+</ng-template>
+<!-- Exchange List -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Exchange ID</th>
+            <th scope="col">Stock Change</th>
+            <th scope="col">Brief</th>
+            <th scope="col">Contact Address</th>
+            <th scope="col">Remark</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let exchange of exchangeList">
+            <th scope="row">{{ exchange.id }}</th>
+            <td>
+                {{ exchange.stockExchange }}
+            </td>
+            <td>{{ exchange.brief}}</td>
+            <td>{{ exchange.address  }}</td>
+            <td>{{ exchange.remark  }}</td>
+            <td><button class="btn btn-info" (click)="open(editchange)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+        <option [ngValue]="2">2 items per page</option>
+        <option [ngValue]="4">4 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+    </select>
+</div>
+
+<ng-template #editchange let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Hello, World!</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+</ng-template>
