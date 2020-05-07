@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://106.14.5.63:3306/fsd2020
+    username: mysql
+    password: 594Caoyizheng!
+#指定myBatis的核心配置文件与Mapper映射文件
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  # 注意：对应实体类的路径
+  type-aliases-package: com.yh.data
+  
