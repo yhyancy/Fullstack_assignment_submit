@@ -20,10 +20,10 @@ export class LoginComponent implements OnInit {
   alerts: Alert[];
 
   public result: any = { //登录后接收后台返回的值
-    token: '',
-    uName: '',
     isAuth: '', //1 登录成功 0 用户不存在 -1 密码错误
-    uType: '' // user, admin
+    token: '',
+    uname: '',
+    utype: '' // user, admin
   };
   time: number = 2 * 60 * 60 * 1000;// cookie过期时间两个小时 2*60*60*1000
   constructor(public router: Router, public userService: UserService, private cookieService: CookieService) {
@@ -49,16 +49,16 @@ export class LoginComponent implements OnInit {
           console.log('登录成功')
           sessionStorage.setItem('token', this.result.token)
           //存储cookie, 过期时间两个小时 2*60*60*1000
-          this.cookieService.set('UNAME', this.result.uName, new Date(new Date().getTime() + this.time));
+          this.cookieService.set('UNAME', this.result.uname, new Date(new Date().getTime() + this.time));
           // TODO: 刷新页面
           // location.reload()
           // console.log('刷新页面')
           this.alerts.push({ type: 'success', message: 'Login successfully' });
           //  根据role来判断跳转的URL
-          if (this.result.uType == "user") {
+          if (this.result.utype == "user") {
             this.router.navigate(['/userhome']);
           }
-          if (this.result.uType == "admin") {
+          if (this.result.utype == "admin") {
             this.router.navigate(['/adminhome']);
           }
         }
