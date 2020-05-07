@@ -11,6 +11,20 @@
             Name is required.
         </div>
     </div>
+
+    <div class="form-group col-md-4">
+        <label for="uType">User Type</label>
+        <select id="uType" class="form-control" ngModel name="usertype" #usertype="ngModel" required>
+            <option selected>user</option>
+            <option>admin</option>
+        </select>
+    </div>
+    <!-- User Type提示信息 -->
+    <div *ngIf="usertype.invalid && (usertype.dirty || usertype.touched)" class="alert alert-danger col-md-4">
+        <div *ngIf="usertype.errors.required">
+            User type is required.
+        </div>
+    </div>
     <div class="form-group col-md-4">
         <label for="inputEmail">Email:</label>
         <input type="email" ngModel name="email" #email="ngModel" required email class="form-control" id="inputEmail">
