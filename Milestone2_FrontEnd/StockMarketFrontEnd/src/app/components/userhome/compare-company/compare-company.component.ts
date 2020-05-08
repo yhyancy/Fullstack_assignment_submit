@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-
+import * as $ from 'jquery'
 @Component({
   selector: 'app-compare-company',
   templateUrl: './compare-company.component.html',
