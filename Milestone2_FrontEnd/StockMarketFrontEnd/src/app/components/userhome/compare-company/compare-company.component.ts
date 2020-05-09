@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
 import * as $ from 'jquery'
 @Component({
   selector: 'app-compare-company',
@@ -8,9 +9,12 @@ import * as $ from 'jquery'
 })
 export class CompareCompanyComponent implements OnInit {
   model: NgbDateStruct;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -1,62 +1,131 @@
-<h2>Compare Company </h2>
-<form>
-    <!-- Select Company/Sector -->
-    <div class="form-group col-md-4">
-        <label for="selectComOrSetor">Select Company/Sector:</label>
-        <select class="form-control" id="selectComOrSetor">
-            <option value="company">Company</option>
-            <option value="sector">Sector</option>
-        </select>
-    </div>
-    <!-- Select Stock Exchange -->
-    <div class="form-group col-md-4">
-        <label for="selectSE">Select Stock Exchange:</label>
-        <select class="form-control" id="selectSE">
-            <option value="bse">BSE</option>
-            <option value="nse">NSE</option>
-        </select>
-    </div>
-    <!-- Company Code -->
-    <div class="form-group col-md-4">
-        <label for="companyCode">Company Code:</label>
-        <div class="form-group">
-            <div class="input-group">
-                <input type="text" class="form-control" name="" placeholder="Company Code">
-            </div>
-        </div>
-    </div>
-    <!-- Specific Time Range -->
-    <div class="form-group col-md-4">
-        <label for="specificTR">Specific Time Range:</label>
-        <select class="form-control" id="specificTR">
-            <option value="indicate">Indicate desired date range</option>
-            <option value="select">Select period</option>
-        </select>
-    </div>
-    <!-- From Period -->
-    <div class="form-group col-md-4">
-        <label for="fromPeriod">From Period:</label>
-        <div class="form-group">
-            <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
-                    #d="ngbDatepicker">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+<ngb-tabset [destroyOnHide]="false">
+    <ngb-tab title="Standard chart">
+        <ng-template ngbTabContent>
+        <form #myForm="ngForm">
+                <!-- Select Company/Sector -->
+                <div class="form-group col-md-4">
+                    <label for="catagory">Catagory:</label>
+                     <select class="form-control" id="selectComOrSetor" ngModel name="catagory" >
+                        <option value="company">Company</option>
+                        <option value="sector">Sector</option>
+                     </select>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- To Period -->
-    <div class="form-group col-md-4">
-        <label for="toPeriod">To Period:</label>
-        <div class="form-group">
-            <div class="input-group">
-                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
-                    #d="ngbDatepicker">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                 <!-- Company Name -->
+                <div class="form-group col-md-4">
+                     <label for="name">Name:</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                        <input type="text" class="form-control" name="name" ngModel placeholder="Name">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</form>
+                <!-- Select Stock Exchange -->
+                <div class="form-group col-md-4">
+                    <label for="SE">Select Stock Exchange:</label>
+                    <select class="form-control" id="selectSE" ngModel name="SE">
+                        <option value="BSE">BSE</option>
+                        <option value="NSE">NSE</option>
+                    </select>
+                </div>
+
+                <div class="form-group row" style="margin-left: 1%;">
+                    <!-- From period1 -->
+                    <label for="startTime1">From period:</label>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="datetime-local" class="form-control" ngModel #startTime1="ngModel" name="startTime1" id="startTime1"
+                                    placeholder="YYYY-mm-dd hh:mm:ss">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- To period1 -->
+                    <label for="endTime1">To period:</label>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="datetime-local" class="form-control" ngModel #endTime1="ngModel" name="endTime1" id="endTime1"
+                                    placeholder="YYYY-mm-dd hh:mm:ss">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- From period2 -->
+                    <label for="startTime2">From period:</label>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="datetime-local" class="form-control" ngModel #startTime2="ngModel" name="startTime2" id="startTime2"
+                                    placeholder="YYYY-mm-dd hh:mm:ss">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- To period2 -->
+                    <label for="endTime2">To period:</label>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="datetime-local" class="form-control" ngModel #startTime2="ngModel" name="endTime2" id="endTime2"
+                                    placeholder="YYYY-mm-dd hh:mm:ss">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         </form>
+            {{ myForm.value | json }}
+
+
+        </ng-template>
+    </ngb-tab>
+
+    <!-- Custom chart -->
+    <ngb-tab>
+        <ng-template ngbTabTitle>Custom chart</ng-template>
+        <ng-template ngbTabContent>
+                <!-- Select Company/Sector -->
+                <div class="form-group col-md-4">
+                    <label for="selectComOrSetor">Catagory:</label>
+                    <select class="form-control" id="selectComOrSetor">
+                        <option value="company">Company</option>
+                        <option value="sector">Sector</option>
+                    </select>
+                </div>
+                <!-- Company Name -->
+                <div class="form-group col-md-4">
+                    <label for="name">Name:</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="" placeholder="Name">
+                        </div>
+                    </div>
+                </div>
+                <!-- Select Stock Exchange -->
+                <div class="form-group col-md-4">
+                    <label for="selectSE">Select Stock Exchange:</label>
+                    <select class="form-control" id="selectSE">
+                        <option value="bse">BSE</option>
+                        <option value="nse">NSE</option>
+                    </select>
+                </div>
+        </ng-template>
+    </ngb-tab>
+
+</ngb-tabset>
