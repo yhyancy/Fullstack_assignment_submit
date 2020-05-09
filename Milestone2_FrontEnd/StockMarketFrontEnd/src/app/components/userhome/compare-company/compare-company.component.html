@@ -32,22 +32,26 @@
                     <!-- From period1 -->
                     <label for="startTime1">From period:</label>
                     <div class="col-md-2">
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime1"  data-date-format="yyyy-MM-dd hh:mm:ss"
+                            placeholder="yyyy-MM-dd hh:mm:ss">
                         <div class="form-group">
-                            <div class="input-group">
-                                <input type="datetime-local" class="form-control" ngModel #startTime1="ngModel" name="startTime1" id="startTime1"
+                            <!-- <div class="input-group"> -->
+                                <!-- <input type="datetime-local" class="form-control" ngModel #startTime1="ngModel" name="startTime1" id="startTime1"
                                     placeholder="YYYY-mm-dd hh:mm:ss">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
-                                </span>
-                            </div>
+                                </span> -->
+                            <!-- </div> -->
                         </div>
                     </div>
 
                     <!-- To period1 -->
                     <label for="endTime1">To period:</label>
                     <div class="col-md-2">
-                        <div class="form-group">
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker"  ngModel name="endTime1" data-date-format="yyyy-MM-dd hh:mm:ss"
+                            placeholder="yyyy-MM-dd hh:mm:ss">
+                        <!-- <div class="form-group">
                             <div class="input-group">
                                 <input type="datetime-local" class="form-control" ngModel #endTime1="ngModel" name="endTime1" id="endTime1"
                                     placeholder="YYYY-mm-dd hh:mm:ss">
@@ -56,13 +60,15 @@
                                     </span>
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- From period2 -->
                     <label for="startTime2">From period:</label>
                     <div class="col-md-2">
-                        <div class="form-group">
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime2" data-date-format="yyyy-MM-dd hh:mm:ss"
+                            placeholder="yyyy-MM-dd hh:mm:ss">
+                        <!-- <div class="form-group">
                             <div class="input-group">
                                 <input type="datetime-local" class="form-control" ngModel #startTime2="ngModel" name="startTime2" id="startTime2"
                                     placeholder="YYYY-mm-dd hh:mm:ss">
@@ -71,13 +77,15 @@
                                     </span>
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- To period2 -->
                     <label for="endTime2">To period:</label>
                     <div class="col-md-2">
-                        <div class="form-group">
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker"  ngModel name="endTime2" data-date-format="yyyy-MM-dd hh:mm:ss"
+                            placeholder="yyyy-MM-dd hh:mm:ss">
+                        <!-- <div class="form-group">
                             <div class="input-group">
                                 <input type="datetime-local" class="form-control" ngModel #startTime2="ngModel" name="endTime2" id="endTime2"
                                     placeholder="YYYY-mm-dd hh:mm:ss">
@@ -86,13 +94,11 @@
                                     </span>
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
          </form>
             {{ myForm.value | json }}
-
-
         </ng-template>
     </ngb-tab>
 

@@ -13,6 +13,8 @@ export class CompareCompanyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
   }
 
 
