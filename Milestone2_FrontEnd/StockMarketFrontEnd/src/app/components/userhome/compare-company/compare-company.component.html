@@ -5,9 +5,9 @@
                 <!-- Select Company/Sector -->
                 <div class="form-group col-md-4">
                     <label for="catagory">Catagory:</label>
-                     <select class="form-control" id="selectComOrSetor" ngModel name="catagory" required >
-                        <option value="company">Company</option>
-                        <option value="sector">Sector</option>
+                     <select class="form-control" id="selectComOrSetor" ngModel name="catagory" required [(ngModel)]="Scatagory">
+                        <option value="Company">Company</option>
+                        <option value="Sector">Sector</option>
                      </select>
                 </div>
                  <!-- Company Name -->
@@ -22,7 +22,7 @@
                 <!-- Select Stock Exchange -->
                 <div class="form-group col-md-4">
                     <label for="SE">Stock Exchange:</label>
-                    <select class="form-control" id="selectSE" ngModel name="SE" required>
+                    <select class="form-control" id="selectSE" ngModel name="SE" [(ngModel)]="SSE" required>
                         <option value="BSE">BSE</option>
                         <option value="NSE">NSE</option>
                     </select>

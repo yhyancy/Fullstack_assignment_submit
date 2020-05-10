@@ -11,6 +11,8 @@ import * as $ from 'jquery'
 })
 export class CompareCompanyComponent implements OnInit {
   model: NgbDateStruct;
+  public Scatagory:string="Company"
+  public SSE:string="BSE"
   // public option:Compare_Company[]=[]
   options = {
     title: {
