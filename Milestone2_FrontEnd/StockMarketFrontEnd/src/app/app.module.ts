@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms' //引入表单-实现模板表单�
 import { UserService } from './services/user.service' //引入服务-实现点击sign in,post提交数据
 import { HttpClientModule } from '@angular/common/http'; // 数据交互
 import { CookieService } from 'ngx-cookie-service'; //引入ngx-cookie-service 来操作cookie
+import { NgxEchartsModule } from 'ngx-echarts'; // echarts
 
 
 import { AppComponent } from './app.component';
@@ -55,7 +56,8 @@ import { IPOService } from './services/ipo.service'
     NgbModule,
     FormsModule,
     // ReactiveFormsModule //声明响应式表单
-    HttpClientModule
+    HttpClientModule,
+    NgxEchartsModule
   ],
   providers: [UserService, CookieService, IPOService],
   bootstrap: [AppComponent]
