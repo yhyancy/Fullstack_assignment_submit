@@ -120,44 +120,58 @@
                     </select>
                 </div>
                 <div class="row">
-                    <!--  Name1 -->
-                    <div class="form-group col-md-4">
-                        <label for="name1">Name:</label>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="name1" ngModel placeholder="Name">
+                    <div class="card" style="width: 40rem;margin-left: 1%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <!--  Name1 -->
+                            <div class="form-group ">
+                                <label for="name1">Name:</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="name1" ngModel placeholder="Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Select Stock Exchange -->
+                            <div class="form-group ">
+                                <label for="SE1">Stock Exchange:</label>
+                                <select class="form-control" id="SE" name="SE1" ngModel>
+                                    <option value="BSE">BSE</option>
+                                    <option value="NSE">NSE</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <!--  Name2 -->
-                    <div class="form-group col-md-4">
-                        <label for="name2">Name:</label>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="name2" ngModel placeholder="Name">
+
+                    <div class="card" style="width: 40rem;margin-left: 3%;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <!--  Name2 -->
+                            <div class="form-group ">
+                                <label for="name2">Name:</label>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="name2" ngModel placeholder="Name">
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Select Stock Exchange -->
+                            <div class="form-group ">
+                                <label for="SE2">Stock Exchange:</label>
+                                <select class="form-control" id="selectSE" name="SE2" ngModel>
+                                    <option value="BSE">BSE</option>
+                                    <option value="NSE">NSE</option>
+                                </select>
+                            </div>
+
                         </div>
                     </div>
+
+
                 </div>
-                <div class="row">
-                    <!-- Select Stock Exchange -->
-                    <div class="form-group col-md-4">
-                        <label for="SE1">Stock Exchange:</label>
-                        <select class="form-control" id="SE" name="SE1" ngModel >
-                            <option value="BSE">BSE</option>
-                            <option value="NSE">NSE</option>
-                        </select>
-                    </div>
-                    <!-- Select Stock Exchange -->
-                    <div class="form-group col-md-4">
-                        <label for="SE2">Stock Exchange:</label>
-                        <select class="form-control" id="selectSE" name="SE2" ngModel>
-                            <option value="BSE">BSE</option>
-                            <option value="NSE">NSE</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row" style="margin-left: 1%;">
+
+                <div class="form-group row" style="margin-left: 1%;margin-top: 1%;">
                     <!-- From period1 -->
                     <label for="startTime">From period:</label>
                     <div class="col-md-2">
