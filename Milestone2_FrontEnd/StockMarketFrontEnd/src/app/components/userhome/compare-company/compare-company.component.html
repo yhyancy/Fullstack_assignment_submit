@@ -5,36 +5,52 @@
                 <!-- Select Company/Sector -->
                 <div class="form-group col-md-4">
                     <label for="catagory">Catagory:</label>
-                     <select class="form-control" id="selectComOrSetor" ngModel name="catagory" required [(ngModel)]="Scatagory">
+                     <select class="form-control" id="selectComOrSetor" ngModel name="catagory" #catagory="ngModel" required [(ngModel)]="Scatagory">
                         <option value="Company">Company</option>
                         <option value="Sector">Sector</option>
                      </select>
+                </div>
+                <div *ngIf="catagory.invalid && (catagory.dirty || catagory.touched)" class="alert alert-danger col-md-4">
+                    <div *ngIf="catagory.errors.required">
+                        Catagory is required.
+                    </div>
                 </div>
                  <!-- Company Name -->
                 <div class="form-group col-md-4">
                      <label for="name">Name:</label>
                     <div class="form-group">
                         <div class="input-group">
-                        <input type="text" class="form-control" name="name" ngModel placeholder="Name" required>
+                        <input type="text" class="form-control" name="name" ngModel #name="ngModel"  placeholder="Name" required>
                         </div>
+                    </div>
+                </div>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger col-md-4">
+                    <div *ngIf="name.errors.required">
+                        Name is required.
                     </div>
                 </div>
                 <!-- Select Stock Exchange -->
                 <div class="form-group col-md-4">
                     <label for="SE">Stock Exchange:</label>
-                    <select class="form-control" id="selectSE" ngModel name="SE" [(ngModel)]="SSE" required>
+                    <select class="form-control" id="selectSE" ngModel name="SE" #se="ngModel" [(ngModel)]="SSE" required>
                         <option value="BSE">BSE</option>
                         <option value="NSE">NSE</option>
                     </select>
+                </div>
+                <div *ngIf="se.invalid && (se.dirty || se.touched)" class="alert alert-danger col-md-4">
+                    <div *ngIf="se.errors.required">
+                        Stock Exchange is required.
+                    </div>
                 </div>
 
                 <div class="form-group row" style="margin-left: 1%;">
                     <!-- From period1 -->
                     <label for="startTime1">From period:</label>
                     <div class="col-md-2">
-                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime1"  data-date-format="yyyy-MM-dd hh:mm:ss"
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime1"  #startTime1="ngModel"  data-date-format="yyyy-MM-dd hh:mm:ss"
                             placeholder="yyyy-MM-dd hh:mm:ss" required>
-                        <div class="form-group">
+
+                        <!-- <div class="form-group"> -->
                             <!-- <div class="input-group"> -->
                                 <!-- <input type="datetime-local" class="form-control" ngModel #startTime1="ngModel" name="startTime1" id="startTime1"
                                     placeholder="YYYY-mm-dd hh:mm:ss">
@@ -43,13 +59,19 @@
                                     </span>
                                 </span> -->
                             <!-- </div> -->
+                        <!-- </div> -->
+                        <div *ngIf="startTime1.invalid && (startTime1.dirty || startTime1.touched)" class="alert alert-danger col-md-4">
+                            <div *ngIf="startTime1.errors.required">
+                                Start time is required.
+                            </div>
                         </div>
                     </div>
+
 
                     <!-- To period1 -->
                     <label for="endTime1">To period:</label>
                     <div class="col-md-2">
-                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker"  ngModel name="endTime1" data-date-format="yyyy-MM-dd hh:mm:ss"
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker"  ngModel name="endTime1" #endTime1="ngModel" data-date-format="yyyy-MM-dd hh:mm:ss"
                             placeholder="yyyy-MM-dd hh:mm:ss" required>
                         <!-- <div class="form-group">
                             <div class="input-group">
@@ -61,12 +83,17 @@
                                 </span>
                             </div>
                         </div> -->
+                        <div *ngIf="endTime1.invalid && (endTime1.dirty || endTime1.touched)" class="alert alert-danger col-md-4">
+                            <div *ngIf="endTime1.errors.required">
+                                End time is required.
+                            </div>
+                        </div>
                     </div>
 
                     <!-- From period2 -->
                     <label for="startTime2">From period:</label>
                     <div class="col-md-2">
-                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime2" data-date-format="yyyy-MM-dd hh:mm:ss"
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime2" #startTime2="ngModel" data-date-format="yyyy-MM-dd hh:mm:ss"
                             placeholder="yyyy-MM-dd hh:mm:ss" required>
                         <!-- <div class="form-group">
                             <div class="input-group">
@@ -78,12 +105,17 @@
                                 </span>
                             </div>
                         </div> -->
+                        <div *ngIf="startTime2.invalid && (startTime2.dirty || startTime2.touched)" class="alert alert-danger col-md-4">
+                            <div *ngIf="startTime2.errors.required">
+                                Start time is required.
+                            </div>
+                        </div>
                     </div>
 
                     <!-- To period2 -->
                     <label for="endTime2">To period:</label>
                     <div class="col-md-2">
-                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker"  ngModel name="endTime2" data-date-format="yyyy-MM-dd hh:mm:ss"
+                        <input type="text" value="2020-05-01 18:11:22" id="datetimepicker"  ngModel name="endTime2" #endTime2="ngModel"  data-date-format="yyyy-MM-dd hh:mm:ss"
                             placeholder="yyyy-MM-dd hh:mm:ss" required>
                         <!-- <div class="form-group">
                             <div class="input-group">
@@ -95,6 +127,11 @@
                                 </span>
                             </div>
                         </div> -->
+                        <div *ngIf="endTime2.invalid && (endTime2.dirty || endTime2.touched)" class="alert alert-danger col-md-4">
+                            <div *ngIf="endTime2.errors.required">
+                                End time is required.
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-info" [disabled]="!myForm.form.valid">Generate chart</button>
