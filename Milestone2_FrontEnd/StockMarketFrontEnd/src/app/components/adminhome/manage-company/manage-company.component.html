@@ -222,9 +222,12 @@
                 <option value="inactive">Inactive</option>
             </select>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Add</button>
+        </div>
 
-        <!-- IPO  -->
-        <div class="form-group">
+        <!-- IPO - 移动到update IPO detail 里 -->
+        <!-- <div class="form-group">
             <h4>IPO Info</h4>
             <span><label for="stockExchange">Stock Exchange</label>
                 <input type="text" class="form-control" id="stockExchange" name="stockExchange"
@@ -253,7 +256,7 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-info" (click)="c('Cross  click')">Close</button>
             <button type="button" class="btn btn-outline-info" (click)="c('Save click')">Save</button>
-        </div>
+        </div> -->
     </div>
 
 </ng-template>
