@@ -8,12 +8,13 @@ import {
 import { Observable } from 'rxjs';
 import { UserService } from '../services/user.service';
 
+
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
   constructor(private userService: UserService) { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.userService.currentUserToken;
     console.log('token:' + token);
     if (token) {

@@ -8,6 +8,7 @@ import { UserService } from './services/user.service' //引入服务-实现点�
 import { HttpClientModule } from '@angular/common/http'; // 数据交互
 import { CookieService } from 'ngx-cookie-service'; //引入ngx-cookie-service 来操作cookie
 import { NgxEchartsModule } from 'ngx-echarts'; // echarts
+import { HTTP_INTERCEPTORS } from '@angular/common/http';//拦截器
 
 
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
 import { EmailValidatorDirective } from './directives/email-validator.directive';
 import { IPOService } from './services/ipo.service'
 import { ManageCompanyService } from './services/manage-company.service'
+import { JwtInterceptor } from './interceptor/jwt-interceptor'
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,8 @@ import { ManageCompanyService } from './services/manage-company.service'
     HttpClientModule,
     NgxEchartsModule
   ],
-  providers: [UserService, CookieService, IPOService, ManageCompanyService],
+  providers: [UserService, CookieService, IPOService, ManageCompanyService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
