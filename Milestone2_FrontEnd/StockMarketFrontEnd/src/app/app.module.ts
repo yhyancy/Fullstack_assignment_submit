@@ -29,6 +29,7 @@ import { MobileValidatorDirective } from './directives/mobile-validator.directiv
 import { EqualValidatorDirective } from './directives/equal-validator.directive';
 import { EmailValidatorDirective } from './directives/email-validator.directive';
 import { IPOService } from './services/ipo.service'
+import { ManageCompanyService } from './services/manage-company.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,7 @@ import { IPOService } from './services/ipo.service'
     HttpClientModule,
     NgxEchartsModule
   ],
-  providers: [UserService, CookieService, IPOService],
+  providers: [UserService, CookieService, IPOService, ManageCompanyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
