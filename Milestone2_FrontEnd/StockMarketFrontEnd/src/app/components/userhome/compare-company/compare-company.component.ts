@@ -153,7 +153,9 @@ export class CompareCompanyComponent implements OnInit {
       }
     },
     legend: {
-      data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30']
+      // data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30']
+      data: ['日K', 'MA5']
+
     },
     grid: {
       left: '10%',
@@ -287,43 +289,43 @@ export class CompareCompanyComponent implements OnInit {
             }
           ]
         }
-      },
-      {
-        name: 'MA5',
-        type: 'line',
-        data: this.calculateMA(5),
-        smooth: true,
-        lineStyle: {
-          opacity: 0.5
-        }
-      },
-      {
-        name: 'MA10',
-        type: 'line',
-        data: this.calculateMA(10),
-        smooth: true,
-        lineStyle: {
-          opacity: 0.5
-        }
-      },
-      {
-        name: 'MA20',
-        type: 'line',
-        data: this.calculateMA(20),
-        smooth: true,
-        lineStyle: {
-          opacity: 0.5
-        }
-      },
-      {
-        name: 'MA30',
-        type: 'line',
-        data: this.calculateMA(30),
-        smooth: true,
-        lineStyle: {
-          opacity: 0.5
-        }
-      },
+      }
+      // {
+      //   name: 'MA5',
+      //   type: 'line',
+      //   data: this.calculateMA(5),
+      //   smooth: true,
+      //   lineStyle: {
+      //     opacity: 0.5
+      //   }
+      // },
+      // {
+      //   name: 'MA10',
+      //   type: 'line',
+      //   data: this.calculateMA(10),
+      //   smooth: true,
+      //   lineStyle: {
+      //     opacity: 0.5
+      //   }
+      // },
+      // {
+      //   name: 'MA20',
+      //   type: 'line',
+      //   data: this.calculateMA(20),
+      //   smooth: true,
+      //   lineStyle: {
+      //     opacity: 0.5
+      //   }
+      // },
+      // {
+      //   name: 'MA30',
+      //   type: 'line',
+      //   data: this.calculateMA(30),
+      //   smooth: true,
+      //   lineStyle: {
+      //     opacity: 0.5
+      //   }
+      // },
 
     ]
   };
