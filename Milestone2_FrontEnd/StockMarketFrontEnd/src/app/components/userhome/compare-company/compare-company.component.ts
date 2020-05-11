@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { CompareCompanyList } from '../../Mock/compare_company'
 import { Compare_Company } from '../../Model/compare_company'
+import { ManageCompanyService } from '../../../services/manage-company.service'
 
 import * as $ from 'jquery'
 @Component({
@@ -13,6 +14,7 @@ export class CompareCompanyComponent implements OnInit {
   model: NgbDateStruct;
   public Scatagory: string = "Company"
   public SSE: string = "BSE"
+  public result: any
   // public option:Compare_Company[]=[]
   // echarts start
   upColor = '#ec0000';
@@ -332,16 +334,18 @@ export class CompareCompanyComponent implements OnInit {
 
   // echarts end
 
-  constructor() { }
+  constructor(public manageCompanyService: ManageCompanyService) { }
 
   ngOnInit(): void {
 
   }
   generateChart(value: any, valid: boolean) {
     console.log(value)
-    // TODO:向后台请求数据
-
     if (valid) {
+      // TODO:向后台请求数据
+      this.manageCompanyService.postOneComapre(value).subscribe((data) => {
+        this.result = data
+      })
       //MOCK
       // this.option = CompareCompanyList;
     }
