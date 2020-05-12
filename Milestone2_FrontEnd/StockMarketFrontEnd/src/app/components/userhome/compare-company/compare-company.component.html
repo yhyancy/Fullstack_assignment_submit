@@ -262,24 +262,34 @@
                     <label for="startTime">From period:</label>
                     <div class="col-md-2">
                         <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime"
-                            data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss" required>
-                        <div class="form-group">
-                            <!-- <div class="input-group"> -->
-                            <!-- <input type="datetime-local" class="form-control" ngModel #startTime1="ngModel" name="startTime1" id="startTime1"
+                            data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss"
+                            #startTime="ngModel" required>
+                        <!-- <div class="form-group"> -->
+                        <!-- <div class="input-group"> -->
+                        <!-- <input type="datetime-local" class="form-control" ngModel #startTime1="ngModel" name="startTime1" id="startTime1"
                                                                     placeholder="YYYY-mm-dd hh:mm:ss">
                                                                 <span class="input-group-addon">
                                                                     <span class="glyphicon glyphicon-calendar">
                                                                     </span>
                                                                 </span> -->
-                            <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- </div> -->
+                        <div *ngIf="startTime.invalid && (startTime.dirty || startTime.touched)"
+                            class="alert alert-danger ">
+                            <div *ngIf="startTime.errors.required">
+                                Start time is required.
+                            </div>
                         </div>
+
                     </div>
+
 
                     <!-- To period1 -->
                     <label for="endTime">To period:</label>
                     <div class="col-md-2">
                         <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="endTime"
-                            data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss" required>
+                            data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss" #endTime="ngModel"
+                            required>
                         <!-- <div class="form-group">
                                                             <div class="input-group">
                                                                 <input type="datetime-local" class="form-control" ngModel #endTime1="ngModel" name="endTime1" id="endTime1"
@@ -290,7 +300,13 @@
                                                                 </span>
                                                             </div>
                                                         </div> -->
+                        <div *ngIf="endTime.invalid && (endTime.dirty || endTime.touched)" class="alert alert-danger">
+                            <div *ngIf="endTime.errors.required">
+                                End time is required.
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <button type="submit" class="btn btn-info" [disabled]="!myForm.form.valid">Generate chart</button>
             </form>
