@@ -3,6 +3,7 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { CompareCompanyList } from '../../../Mock/compare_company'
 import { Compare_Company } from '../../../Model/compare_company'
 import { ManageCompanyService } from '../../../services/manage-company.service'
+import { CompareService } from '../../../services/compare.service'
 
 import * as $ from 'jquery'
 @Component({
@@ -334,7 +335,7 @@ export class CompareCompanyComponent implements OnInit {
 
   // echarts end
 
-  constructor(public manageCompanyService: ManageCompanyService) { }
+  constructor(public manageCompanyService: ManageCompanyService, public compareService: CompareService) { }
 
   ngOnInit(): void {
 

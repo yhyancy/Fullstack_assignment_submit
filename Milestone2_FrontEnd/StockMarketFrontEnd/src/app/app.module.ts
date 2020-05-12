@@ -31,6 +31,7 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
 import { EmailValidatorDirective } from './directives/email-validator.directive';
 import { IPOService } from './services/ipo.service'
 import { ManageCompanyService } from './services/manage-company.service'
+import { CompareService } from './services/compare.service'
 import { JwtInterceptor } from './interceptor/jwt-interceptor'
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { JwtInterceptor } from './interceptor/jwt-interceptor'
     HttpClientModule,
     NgxEchartsModule
   ],
-  providers: [UserService, CookieService, IPOService, ManageCompanyService,
+  providers: [UserService, CookieService, IPOService, ManageCompanyService, CompareService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
