@@ -8,8 +8,28 @@ import { environment } from '../../environments/environment' //root url
 export class CompareService {
 
   constructor(public http: HttpClient) { }
-  postOneComapre(value: any) {
+
+  //  standard chart
+  // 一个公司
+  compareSingleCompany(value: any) {
     const httpOtions = { headers: new HttpHeaders({ 'content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'true' }) };
-    return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(value), httpOtions);
+    return this.http.post(`${environment.baseUrl}/compare/company/single`, JSON.stringify(value), httpOtions);
+  }
+  // 一个sector
+  compareSingleSector(value: any) {
+    const httpOtions = { headers: new HttpHeaders({ 'content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'true' }) };
+    return this.http.post(`${environment.baseUrl}/compare/sector/single`, JSON.stringify(value), httpOtions);
+  }
+
+  // custom chart
+  // 两个公司compareCompanies
+  compareCompanies(value: any) {
+    const httpOtions = { headers: new HttpHeaders({ 'content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'true' }) };
+    return this.http.post(`${environment.baseUrl}/compare/sector/multi`, JSON.stringify(value), httpOtions);
+  }
+  // 一个公司一个sector
+  compareComandSec(value: any) {
+    const httpOtions = { headers: new HttpHeaders({ 'content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'true' }) };
+    return this.http.post(`${environment.baseUrl}/compare/comandsec`, JSON.stringify(value), httpOtions);
   }
 }

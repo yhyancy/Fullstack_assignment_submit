@@ -343,9 +343,7 @@ export class CompareCompanyComponent implements OnInit {
     console.log(value)
     if (valid) {
       // TODO:向后台请求数据
-      this.compareService.postOneComapre(value).subscribe((data) => {
-        this.result = data
-      })
+
       //MOCK
       // this.option = CompareCompanyList;
     }
