@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { CompareCompanyList } from '../../../Mock/compare_company'
 import { Compare_Company } from '../../../Model/compare_company'
-import { ManageCompanyService } from '../../../services/manage-company.service'
 import { CompareService } from '../../../services/compare.service'
 
 import * as $ from 'jquery'
@@ -335,7 +334,7 @@ export class CompareCompanyComponent implements OnInit {
 
   // echarts end
 
-  constructor(public manageCompanyService: ManageCompanyService, public compareService: CompareService) { }
+  constructor(public compareService: CompareService) { }
 
   ngOnInit(): void {
 
@@ -344,7 +343,7 @@ export class CompareCompanyComponent implements OnInit {
     console.log(value)
     if (valid) {
       // TODO:向后台请求数据
-      this.manageCompanyService.postOneComapre(value).subscribe((data) => {
+      this.compareService.postOneComapre(value).subscribe((data) => {
         this.result = data
       })
       //MOCK
