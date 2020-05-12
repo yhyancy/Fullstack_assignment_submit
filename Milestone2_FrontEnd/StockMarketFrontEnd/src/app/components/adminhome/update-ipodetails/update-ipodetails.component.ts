@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPO } from '../../Model/ipo'
+import { IPO } from '../../../Model/ipo'
 import { IPOlist } from '../../Mock/ipoList'
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({

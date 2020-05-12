@@ -1,4 +1,4 @@
-import { IPO } from '../Model/ipo'
+import { IPO } from '../../Model/ipo'
 export const IPOlist: IPO[] = [
     {
         id: 1,

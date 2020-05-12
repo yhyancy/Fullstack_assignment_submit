@@ -1,4 +1,4 @@
-import { EXCHANGE } from '../Model/exchange'
+import { EXCHANGE } from '../../Model/exchange'
 export const ExchangeList: EXCHANGE[] = [{
     id: 1,
     stockExchange: 'BSE',

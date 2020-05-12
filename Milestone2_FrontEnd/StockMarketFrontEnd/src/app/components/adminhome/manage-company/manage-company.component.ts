@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { QueryList, ViewChildren } from '@angular/core'
 import { Observable } from 'rxjs';
-import { COMPANY } from '../../Model/company';
+import { COMPANY } from '../../../Model/company';
 import { CompanyService } from '../../../services/company.service';
 import { NgbdSortableHeader, SortEvent } from '../../../directives/sortable.directive';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';

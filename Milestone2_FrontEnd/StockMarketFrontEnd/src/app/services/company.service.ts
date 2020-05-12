@@ -2,7 +2,7 @@ import { Injectable, PipeTransform } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
 // import { Country } from './../components/Model/country';
-import { COMPANY } from './../components/Model/company'
+import { COMPANY } from '../Model/company'
 
 // import { COUNTRIES } from '../components/Mock/countries';
 import { CompanyList } from '../components/Mock/companylist';

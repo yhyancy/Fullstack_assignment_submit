@@ -1,6 +1,6 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 // import { Country } from './../components/Model/country';
-import { COMPANY } from './../components/Model/company'
+import { COMPANY } from '../Model/company'
 
 export type SortColumn = keyof COMPANY | '';
 export type SortDirection = 'asc' | 'desc' | '';
