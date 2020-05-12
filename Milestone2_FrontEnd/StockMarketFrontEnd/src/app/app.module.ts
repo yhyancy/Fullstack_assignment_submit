@@ -11,6 +11,7 @@ import { NgxEchartsModule } from 'ngx-echarts'; // echarts
 import { HTTP_INTERCEPTORS } from '@angular/common/http';//拦截器
 
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HearderComponent } from './components/hearder/hearder.component';
