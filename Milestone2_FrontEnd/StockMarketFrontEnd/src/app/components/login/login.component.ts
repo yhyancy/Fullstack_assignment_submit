@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
           console.log('登录成功')
           sessionStorage.setItem('token', this.result.token)
           //存储cookie, 过期时间两个小时 2*60*60*1000
-          this.cookieService.set('UNAME', this.result.uname, new Date(new Date().getTime() + this.time));
+          this.cookieService.set('UNAME', this.result.uName, new Date(new Date().getTime() + this.time));
           // TODO: 刷新页面
           // location.reload()
           // console.log('刷新页面')
