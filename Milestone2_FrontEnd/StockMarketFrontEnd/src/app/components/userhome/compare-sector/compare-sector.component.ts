@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compare-sector.component.scss']
 })
 export class CompareSectorComponent implements OnInit {
+  public SE1: any = "BSE"
+  public SE2: any = "BSE"
 
   constructor() { }
 
