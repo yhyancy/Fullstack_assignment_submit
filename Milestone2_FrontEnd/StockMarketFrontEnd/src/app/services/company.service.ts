@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { COMPANY } from '../Model/company'
 
 // import { COUNTRIES } from '../components/Mock/countries';
-import { CompanyList } from '../components/Mock/companylist';
+import { CompanyList } from '../Mock/companylist';
 
 
 import { DecimalPipe } from '@angular/common';

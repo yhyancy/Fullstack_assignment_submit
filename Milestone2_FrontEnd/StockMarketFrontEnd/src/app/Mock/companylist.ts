@@ -1,4 +1,4 @@
-import { COMPANY } from '../../Model/company'
+import { COMPANY } from '../Model/company'
 export const CompanyList: COMPANY[] = [{
     id: 1001,
     companyCode: '32001',

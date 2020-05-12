@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EXCHANGE } from '../../../Model/exchange'
-import { ExchangeList } from '../../Mock/exchangeList'
+import { ExchangeList } from '../../../Mock/exchangeList'
 
 @Component({
   selector: 'app-manage-exchange',

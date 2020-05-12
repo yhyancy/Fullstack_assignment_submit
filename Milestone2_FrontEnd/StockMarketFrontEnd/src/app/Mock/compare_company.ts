@@ -1,4 +1,4 @@
-import { Compare_Company  } from '../../Model/compare_company'
+import { Compare_Company  } from '../Model/compare_company'
 export const CompareCompanyList: Compare_Company[] = [
     {
         time: "2020-01-01 01:00:00",
