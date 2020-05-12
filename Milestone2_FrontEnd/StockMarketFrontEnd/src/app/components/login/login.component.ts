@@ -55,10 +55,10 @@ export class LoginComponent implements OnInit {
           // console.log('刷新页面')
           this.alerts.push({ type: 'success', message: 'Login successfully' });
           //  根据role来判断跳转的URL
-          if (this.result.utype == "user") {
+          if (this.result.uType == "user") {
             this.router.navigate(['/userhome']);
           }
-          if (this.result.utype == "admin") {
+          if (this.result.uType == "admin") {
             this.router.navigate(['/adminhome']);
           }
         }
