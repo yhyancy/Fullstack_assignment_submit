@@ -12,10 +12,13 @@ import * as $ from 'jquery'
 })
 export class CompareCompanyComponent implements OnInit {
   model: NgbDateStruct;
+  // standard chart
   public Scatagory: string = "Company"
   public SSE: string = "BSE"
+  // custom chart
   public Ccatgory: string = "Company"
-  public CSE: string = "BSE"
+  public CSE1: string = "BSE"
+  public CSE2: string = "BSE"
   public result: any
   // public option:Compare_Company[]=[]
   // echarts start

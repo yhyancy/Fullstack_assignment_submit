@@ -184,7 +184,7 @@
                             <!-- Select Stock Exchange -->
                             <div class="form-group ">
                                 <label for="SE1">Stock Exchange:</label>
-                                <select class="form-control" id="SE" name="SE1" ngModel>
+                                <select class="form-control" id="SE" name="SE1" ngModel [(ngModel)]="CSE1">
                                     <option value="BSE">BSE</option>
                                     <option value="NSE">NSE</option>
                                 </select>
@@ -197,9 +197,10 @@
                             <!-- <h5 class="card-title">Card title</h5> -->
                             <div class="form-group ">
                                 <label for="selectComOrSetor">Catagory:</label>
-                                <select class="form-control" id="selectComOrSetor" name="catagory" ngModel>
-                                    <option value="company">Company</option>
-                                    <option value="sector">Sector</option>
+                                <select class="form-control" id="selectComOrSetor" name="catagory" ngModel
+                                    [(ngModel)]="Ccatgory">
+                                    <option value="Company">Company</option>
+                                    <option value="Sector">Sector</option>
                                 </select>
                             </div>
                             <!--  Name2 -->
@@ -215,7 +216,7 @@
                             <!-- Select Stock Exchange -->
                             <div class="form-group ">
                                 <label for="SE2">Stock Exchange:</label>
-                                <select class="form-control" id="selectSE" name="SE2" ngModel>
+                                <select class="form-control" id="selectSE" name="SE2" ngModel [(ngModel)]="CSE2">
                                     <option value="BSE">BSE</option>
                                     <option value="NSE">NSE</option>
                                 </select>
