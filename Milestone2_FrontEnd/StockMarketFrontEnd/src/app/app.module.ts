@@ -31,7 +31,8 @@ import { EqualValidatorDirective } from './directives/equal-validator.directive'
 import { EmailValidatorDirective } from './directives/email-validator.directive';
 import { IPOService } from './services/ipo.service'
 import { CompareService } from './services/compare.service'
-import { JwtInterceptor } from './interceptor/jwt-interceptor'
+import { JwtInterceptor } from './interceptor/jwt-interceptor';
+import { EmailConfirmComponent } from './components/email-confirm/email-confirm.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { JwtInterceptor } from './interceptor/jwt-interceptor'
     LogoutComponent,
     MobileValidatorDirective,
     EqualValidatorDirective,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    EmailConfirmComponent
   ],
   imports: [
     BrowserModule,
