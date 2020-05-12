@@ -1,7 +1,7 @@
 <ngb-tabset [destroyOnHide]="false">
     <ngb-tab title="Standard chart">
         <ng-template ngbTabContent>
-            <form #myForm="ngForm" (ngSubmit)="generateChart(myForm.value, myForm.form.valid)" novalidate>
+            <form #myForm="ngForm" (ngSubmit)="generateStandardChart(myForm.value, myForm.form.valid)" novalidate>
                 <!-- Select Company/Sector -->
                 <div class="form-group col-md-4">
                     <label for="catagory">Catagory:</label>
@@ -159,7 +159,7 @@
     <ngb-tab>
         <ng-template ngbTabTitle>Custom chart</ng-template>
         <ng-template ngbTabContent>
-            <form #myForm="ngForm" (ngSubmit)="generateChart(myForm.value, myForm.form.valid)" novalidate>
+            <form #myForm="ngForm" (ngSubmit)="generateCustomChart(myForm.value, myForm.form.valid)" novalidate>
                 <!-- Select Company/Sector -->
                 <!-- <div class="form-group col-md-4">
                     <label for="selectComOrSetor">Catagory:</label>

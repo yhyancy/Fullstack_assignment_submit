@@ -14,6 +14,8 @@ export class CompareCompanyComponent implements OnInit {
   model: NgbDateStruct;
   public Scatagory: string = "Company"
   public SSE: string = "BSE"
+  public Ccatgory: string = "Company"
+  public CSE: string = "BSE"
   public result: any
   // public option:Compare_Company[]=[]
   // echarts start
@@ -339,18 +341,40 @@ export class CompareCompanyComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  generateChart(value: any, valid: boolean) {
+  generateStandardChart(value: any, valid: boolean) {
     console.log(value)
     if (valid) {
-      // TODO:向后台请求数据
-
-      //MOCK
-      // this.option = CompareCompanyList;
+      // 向后台请求数据
+      // 一个公司，不同时间段
+      if (this.Scatagory == "Company") {
+        this.compareService.compareSingleCompany(value).subscribe((data) => {
+          console.log(data)
+        })
+      }
+      // 一个sector，不同时间段
+      else {
+        this.compareService.compareSingleSector(value).subscribe((data) => {
+          console.log(data)
+        })
+      }
     }
-
-
   }
-
-
-
+  generateCustomChart(value: any, valid: boolean) {
+    console.log(value)
+    if (valid) {
+      // 向后台请求数据
+      // 两个公司，相同时间段
+      if (this.Ccatgory == "Company") {
+        this.compareService.compareCompanies(value).subscribe((data) => {
+          console.log(data)
+        })
+      }
+      // 一个公司，一个sector，相同时间段
+      else {
+        this.compareService.compareComandSec(value).subscribe((data) => {
+          console.log(data)
+        })
+      }
+    }
+  }
 }
