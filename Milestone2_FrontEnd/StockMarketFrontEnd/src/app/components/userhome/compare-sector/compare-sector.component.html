@@ -1,110 +1,107 @@
-<form>
-    <form #myForm="ngForm" novalidate>
-        <div class="row" style="margin-top: 1%;">
-            <div class="card" style="width: 40rem;margin-left: 1%;">
-                <div class="card-body">
-                    <h5 class="card-title">Sector</h5>
-                    <!--  Name1 -->
-                    <div class="form-group ">
-                        <label for="name1">Name:</label>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="name1" ngModel #name1="ngModel" required
-                                    placeholder="Name">
-                            </div>
-                        </div>
-                    </div>
-                    <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="alert alert-danger">
-                        <div *ngIf="name1.errors.required">
-                            Name is required.
-                        </div>
-                    </div>
-                    <!-- Select Stock Exchange -->
-                    <div class="form-group ">
-                        <label for="SE1">Stock Exchange:</label>
-                        <select class="form-control" id="SE" name="SE1" ngModel #se1="ngModel" required
-                            [(ngModel)]="SE1">
-                            <option value="BSE">BSE</option>
-                            <option value="NSE">NSE</option>
-                        </select>
-                    </div>
-                    <div *ngIf="se1.invalid && (se1.dirty || se1.touched)" class="alert alert-danger">
-                        <div *ngIf="se1.errors.required">
-                            Stock Exchange is required.
+<form #myForm="ngForm" (ngSubmit)="generateSectorCharts(myForm.value, myForm.form.valid)" novalidate>
+    <div class="row" style="margin-top: 1%;">
+        <div class="card" style="width: 40rem;margin-left: 1%;">
+            <div class="card-body">
+                <h5 class="card-title">Sector</h5>
+                <!--  Name1 -->
+                <div class="form-group ">
+                    <label for="name1">Name:</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="name1" ngModel #name1="ngModel" required
+                                placeholder="Name">
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="card" style="width: 40rem;margin-left: 3%;">
-                <div class="card-body">
-                    <h5 class="card-title">Sector</h5>
-                    <!--  Name2 -->
-                    <div class="form-group ">
-                        <label for="name2">Name:</label>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="name2" required #name2="ngModel" ngModel
-                                    placeholder="Name">
-                            </div>
-                        </div>
+                <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="alert alert-danger">
+                    <div *ngIf="name1.errors.required">
+                        Name is required.
                     </div>
-                    <div *ngIf="name2.invalid && (name2.dirty || name2.touched)" class="alert alert-danger">
-                        <div *ngIf="name2.errors.required">
-                            Name is required.
-                        </div>
-                    </div>
-
-                    <!-- Select Stock Exchange -->
-                    <div class="form-group ">
-                        <label for="SE2">Stock Exchange:</label>
-                        <select class="form-control" id="selectSE" name="SE2" ngModel [(ngModel)]="SE2" required
-                            #se2="ngModel">
-                            <option value="BSE">BSE</option>
-                            <option value="NSE">NSE</option>
-                        </select>
-                    </div>
-                    <div *ngIf="se2.invalid && (se2.dirty || se2.touched)" class="alert alert-danger">
-                        <div *ngIf="se2.errors.required">
-                            Stock Exchange is required.
-                        </div>
+                </div>
+                <!-- Select Stock Exchange -->
+                <div class="form-group ">
+                    <label for="SE1">Stock Exchange:</label>
+                    <select class="form-control" id="SE" name="SE1" ngModel #se1="ngModel" required [(ngModel)]="SE1">
+                        <option value="BSE">BSE</option>
+                        <option value="NSE">NSE</option>
+                    </select>
+                </div>
+                <div *ngIf="se1.invalid && (se1.dirty || se1.touched)" class="alert alert-danger">
+                    <div *ngIf="se1.errors.required">
+                        Stock Exchange is required.
                     </div>
                 </div>
             </div>
-
-
         </div>
 
-        <div class="form-group row" style="margin-left: 1%;margin-top: 1%;">
-            <!-- From period -->
-            <label for="startTime">From period:</label>
-            <div class="col-md-2">
-                <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime"
-                    data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss" #startTime="ngModel"
-                    required>
-                <div *ngIf="startTime.invalid && (startTime.dirty || startTime.touched)" class="alert alert-danger ">
-                    <div *ngIf="startTime.errors.required">
-                        Start time is required.
+        <div class="card" style="width: 40rem;margin-left: 3%;">
+            <div class="card-body">
+                <h5 class="card-title">Sector</h5>
+                <!--  Name2 -->
+                <div class="form-group ">
+                    <label for="name2">Name:</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="name2" required #name2="ngModel" ngModel
+                                placeholder="Name">
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="name2.invalid && (name2.dirty || name2.touched)" class="alert alert-danger">
+                    <div *ngIf="name2.errors.required">
+                        Name is required.
                     </div>
                 </div>
 
-            </div>
-
-
-            <!-- To period -->
-            <label for="endTime">To period:</label>
-            <div class="col-md-2">
-                <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="endTime"
-                    data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss" #endTime="ngModel"
-                    required>
-                <div *ngIf="endTime.invalid && (endTime.dirty || endTime.touched)" class="alert alert-danger">
-                    <div *ngIf="endTime.errors.required">
-                        End time is required.
+                <!-- Select Stock Exchange -->
+                <div class="form-group ">
+                    <label for="SE2">Stock Exchange:</label>
+                    <select class="form-control" id="selectSE" name="SE2" ngModel [(ngModel)]="SE2" required
+                        #se2="ngModel">
+                        <option value="BSE">BSE</option>
+                        <option value="NSE">NSE</option>
+                    </select>
+                </div>
+                <div *ngIf="se2.invalid && (se2.dirty || se2.touched)" class="alert alert-danger">
+                    <div *ngIf="se2.errors.required">
+                        Stock Exchange is required.
                     </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="form-group row" style="margin-left: 1%;margin-top: 1%;">
+        <!-- From period -->
+        <label for="startTime">From period:</label>
+        <div class="col-md-2">
+            <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="startTime"
+                data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss" #startTime="ngModel" required>
+            <div *ngIf="startTime.invalid && (startTime.dirty || startTime.touched)" class="alert alert-danger ">
+                <div *ngIf="startTime.errors.required">
+                    Start time is required.
                 </div>
             </div>
 
         </div>
-        <button type="submit" class="btn btn-info" [disabled]="!myForm.form.valid">Generate chart</button>
-    </form>
+
+
+        <!-- To period -->
+        <label for="endTime">To period:</label>
+        <div class="col-md-2">
+            <input type="text" value="2020-05-01 18:11:22" id="datetimepicker" ngModel name="endTime"
+                data-date-format="yyyy-MM-dd hh:mm:ss" placeholder="yyyy-MM-dd hh:mm:ss" #endTime="ngModel" required>
+            <div *ngIf="endTime.invalid && (endTime.dirty || endTime.touched)" class="alert alert-danger">
+                <div *ngIf="endTime.errors.required">
+                    End time is required.
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-info" [disabled]="!myForm.form.valid">Generate chart</button>
 </form>
+{{ myForm.value | json }}
+{{ myForm.valid}}
