@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
   public result: any = { //登录后接收后台返回的值
     isAuth: '', //1 登录成功 0 用户不存在 -1 密码错误
     token: '',
-    uname: '',
-    utype: '' // user, admin
+    uName: '',
+    uType: '' // user, admin
   };
   time: number = 2 * 60 * 60 * 1000;// cookie过期时间两个小时 2*60*60*1000
   constructor(public router: Router, public userService: UserService, private cookieService: CookieService) {
