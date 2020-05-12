@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fsd2020.data.mapper.CompanyMapper">
+	
+	<insert id="addCompany" parameterType="com.fsd2020.data.entity.CompanyEntity" >
+	    insert into company 
+	    (company_code,company_name,turnover, ceo, board_of_director, listed_in_se, sector_name, brife_write_up, stock_code, company_status) 
+	    values (#{company_code},#{company_name},#{turnover}, #{ceo}, #{board_of_director}, #{listed_in_se},#{sector_name},#{brife_write_up},#{stock_code},#{company_status})
+	</insert>
+	
+	<update id="disableCompanyByCode" >
+		UPDATE company 
+			SET 
+				company_status='0' 
+			WHERE 
+				company_code = #{company_code}
+	</update>
+	
+	<update id="updateCompany" parameterType="com.fsd2020.data.entity.CompanyEntity">
+		UPDATE company 
+			SET 
+				turnover=#{turnover}, 
+				ceo=#{ceo},
+				board_of_director=#{board_of_director}, 
+				listed_in_se=#{listed_in_se}, 
+				sector_name=#{sector_name},
+				brife_write_up=#{brife_write_up},
+				stock_code=#{stock_code},
+				company_status=#{company_status}
+			WHERE 
+				company_code = #{company_code}
+	</update>
+	
+	<select id="listCompany" resultType="com.fsd2020.data.entity.CompanyEntity">
+		select * from company
+	</select>
+	
+	<select id="getCompanyByName" resultType="com.fsd2020.data.entity.CompanyEntity">
+		select * from company where company_name = #{company_name}
+	</select>
+	
+	<select id="getCompanyByCode" resultType="com.fsd2020.data.entity.CompanyEntity">
+		select * from company where company_code = #{company_code}
+	</select>
+</mapper>
