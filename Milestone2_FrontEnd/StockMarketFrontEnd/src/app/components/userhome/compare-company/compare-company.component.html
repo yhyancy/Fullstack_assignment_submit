@@ -161,17 +161,17 @@
         <ng-template ngbTabContent>
             <form #myForm="ngForm" (ngSubmit)="generateChart(myForm.value, myForm.form.valid)" novalidate>
                 <!-- Select Company/Sector -->
-                <div class="form-group col-md-4">
+                <!-- <div class="form-group col-md-4">
                     <label for="selectComOrSetor">Catagory:</label>
                     <select class="form-control" id="selectComOrSetor" name="catagory" ngModel>
                         <option value="company">Company</option>
                         <option value="sector">Sector</option>
                     </select>
-                </div>
-                <div class="row">
+                </div> -->
+                <div class="row" style="margin-top: 1%;">
                     <div class="card" style="width: 40rem;margin-left: 1%;">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Company</h5>
                             <!--  Name1 -->
                             <div class="form-group ">
                                 <label for="name1">Name:</label>
@@ -194,7 +194,14 @@
 
                     <div class="card" style="width: 40rem;margin-left: 3%;">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <!-- <h5 class="card-title">Card title</h5> -->
+                            <div class="form-group ">
+                                <label for="selectComOrSetor">Catagory:</label>
+                                <select class="form-control" id="selectComOrSetor" name="catagory" ngModel>
+                                    <option value="company">Company</option>
+                                    <option value="sector">Sector</option>
+                                </select>
+                            </div>
                             <!--  Name2 -->
                             <div class="form-group ">
                                 <label for="name2">Name:</label>
