@@ -37,9 +37,9 @@ const routes: Routes = [
       { path: '**', redirectTo: 'import-data' }
     ], canActivate: [LoginGuard]
   },
-  { path: 'changepassword', component: ChangePasswordComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'email-confirm', component: EmailConfirmComponent }
+  { path: 'changepassword', component: ChangePasswordComponent, canActivate: [LoginGuard] },
+  { path: 'logout', component: LogoutComponent, canActivate: [LoginGuard] },
+  { path: 'email-confirm', component: EmailConfirmComponent, canActivate: [LoginGuard] }
 
 ];
 

@@ -22,5 +22,4 @@ export class EmailConfirmComponent implements OnInit {
     // else { failed }
 
   }
-
 }
