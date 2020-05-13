@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fsd2020.data.mapper.ChartPriceMapper">
+
+
+	<select id="getCompanyCode" resultType="String">
+		select company_code from company where company_name=#{companyName}
+	</select>
+
+	<!-- Single Company compare -->
+	<select id="getPrice1" resultType="com.fsd2020.data.entity.singlecompany.PriceReturnEntity" >
+		select price,price_min as time  from stock_price_detail 
+			where price_min between #{startTime1} and #{endTime1} 
+				and company_code=#{code} 
+	</select>
+	<select id="getPrice2" resultType="com.fsd2020.data.entity.singlecompany.PriceReturnEntity" >
+		select price,price_min as time  from stock_price_detail 
+			where price_min between #{startTime2} and #{endTime2} 
+				and company_code=#{code} 
+	</select>
+	
+	<!-- Muti Company Compare -->
+	<select id="getMutiCompanyPrice1" resultType="com.fsd2020.data.entity.singlecompany.PriceReturnEntity" >
+		select price,price_min as time  from stock_price_detail 
+			where price_min between #{startTime} and #{endTime} 
+				and company_code=#{code1} 
+	</select>
+	<select id="getMutiCompanyPrice2" resultType="com.fsd2020.data.entity.singlecompany.PriceReturnEntity" >
+		select price,price_min as time  from stock_price_detail 
+			where price_min between #{startTime} and #{endTime} 
+				and company_code=#{code2} 
+	</select>
+</mapper>

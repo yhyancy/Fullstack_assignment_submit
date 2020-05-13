@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fsd2020.data.mapper.StockPriceMapper">
+	
+	<insert id="addPrice" >
+		insert into 
+			stock_price_detail (
+					company_code, 
+					stock_exchange, 
+					price,
+					price_min) 
+			VALUES 
+			<foreach collection="prices" item="price" separator=",">
+				(
+					#{price.company_code}, 
+					#{price.stock_exchange}, 
+					#{price.price},
+					#{price.price_min} )
+			</foreach>
+	</insert>
+</mapper>
