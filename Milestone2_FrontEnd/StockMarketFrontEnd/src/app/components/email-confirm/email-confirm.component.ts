@@ -25,14 +25,17 @@ export class EmailConfirmComponent implements OnInit {
       this.emailConfirm = data
     })
 
-    this.http.get(`${environment.baseUrl}/signup/validate`, this.emailConfirm).subscribe((response: any) => {
+    let api = environment.baseUrl + "/signup/validate?uname=yancy666&code=8244"
+    // TODO: 如何获取uname和code
+    this.http.get(api).subscribe((response: any) => {
       console.log(response)
-      if (response.status == "ok") {
+      if (response.status == "OK") {
         //  注册并激活成功，redirect sign in
         this.router.navigate(['/login'])
       }
       else {
         //激活失败，提示信息：注册失败
+        alert('FAILED')
       }
     })
 

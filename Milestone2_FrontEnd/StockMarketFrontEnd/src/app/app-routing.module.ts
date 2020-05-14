@@ -39,7 +39,7 @@ const routes: Routes = [
   },
   { path: 'changepassword', component: ChangePasswordComponent, canActivate: [LoginGuard] },
   { path: 'logout', component: LogoutComponent, canActivate: [LoginGuard] },
-  { path: 'email-confirm', component: EmailConfirmComponent, canActivate: [LoginGuard] }
+  { path: 'email-confirm', component: EmailConfirmComponent }
 
 ];
 
