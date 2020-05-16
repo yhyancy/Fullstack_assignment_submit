@@ -9,11 +9,9 @@ export class IPOService {
 
   constructor(public http: HttpClient) { }
 
+  // USER
   getIPOs() {
-    let api = environment.baseUrl + '/userhome/ipolist'
-    return this.http.get(api).subscribe((response: any) => {
-      console.log(response)
-    })
-
+    let api = environment.baseUrl + '/user/ipo/list'
+    return this.http.get(api)
   }
 }

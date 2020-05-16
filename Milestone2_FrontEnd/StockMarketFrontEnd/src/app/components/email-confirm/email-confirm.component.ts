@@ -20,16 +20,18 @@ export class EmailConfirmComponent implements OnInit {
   ngOnInit(): void {
   }
   confirm() {
+    // TODO: 如何获取uname和code
     this.activedRoute.queryParams.subscribe((data) => {
       console.log(data)
       this.emailConfirm = data
     })
-
+    // 发送请求
     let api = environment.baseUrl + "/signup/validate?uname=yancy666&code=8244"
-    // TODO: 如何获取uname和code
+
     this.http.get(api).subscribe((response: any) => {
       console.log(response)
       if (response.status == "OK") {
+        alert('sign up successfully.')
         //  注册并激活成功，redirect sign in
         this.router.navigate(['/login'])
       }

@@ -26,14 +26,9 @@ export class SignupComponent implements OnInit {
       //往后台传送数据
       this.userService.postSignUp(value).subscribe((data: any) => {
         console.log(data)
-
-        // TODO:判断： 提示信息， 然后跳转
-        //  if(data.status=="ok"){
-        //   this.router.navigate(['/login']);
-        //  }
-        // TODO: 如何通过点击email link调前台email-confirm 组件
         if (data.status == "OK") {
-          this.router.navigate(['/email-confirm']);
+          //跳转到提示信息页面
+          this.router.navigate(['/email-prompt']);
         }
         else {
           this.alerts.push({ type: 'danger', message: 'Please sign up again' });

@@ -16,6 +16,7 @@ import { ManageExchangeComponent } from './components/adminhome/manage-exchange/
 import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodetails/update-ipodetails.component';
 import { LoginGuard } from './guard/login.guard' //路由守卫
 import { EmailConfirmComponent } from './components/email-confirm/email-confirm.component'
+import { EmailpromptComponent } from './components/emailprompt/emailprompt.component'
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
   },
   { path: 'changepassword', component: ChangePasswordComponent, canActivate: [LoginGuard] },
   { path: 'logout', component: LogoutComponent, canActivate: [LoginGuard] },
-  { path: 'email-confirm', component: EmailConfirmComponent }
+  { path: 'email-confirm', component: EmailConfirmComponent },
+  { path: 'email-prompt', component: EmailpromptComponent }
 
 ];
 
