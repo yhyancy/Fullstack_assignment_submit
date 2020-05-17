@@ -89,7 +89,7 @@ export class IPOListComponent implements OnInit {
   }
   getIpos() {
     // 从后台获取IPO信息
-    this.ipoService.getIPOs().subscribe((data: any) => {
+    this.ipoService.getUserIPOs().subscribe((data: any) => {
       console.log(data)
       this.IPOlist = data
     })

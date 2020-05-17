@@ -9,18 +9,21 @@ export class IPOService {
 
   constructor(public http: HttpClient) { }
 
-  // USER
-  getIPOs() {
+
+  // user/ipo/list
+  getUserIPOs() {
     // let api = environment.baseUrl + '/user/ipo/list'
     let api = "http://localhost:9002/user/ipo/list"
     return this.http.get(api)
   }
 
-  // admin
+
+  // admin/ipo/list
   getAdminIPOs() {
     // let api = environment.baseUrl + '/user/ipo/list'
     let api = "http://localhost:9002/admin/ipo/list"
     return this.http.get(api)
   }
+  // admin/ipo/add
 
 }
