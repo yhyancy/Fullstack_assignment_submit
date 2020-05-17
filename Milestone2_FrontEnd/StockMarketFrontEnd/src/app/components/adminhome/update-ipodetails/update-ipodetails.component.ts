@@ -17,7 +17,13 @@ export class UpdateIPODetailsComponent implements OnInit {
   collectionSize = this.IPOlist.length;
   // public ipoList: IPO[] = IPOlist
   public currentIPO: IPO
-  public SE = "BSE"
+  public addedIPO: any = {
+    company_name: '',
+    stock_exchange: 'BSE',
+    price_per_share: '',
+    total_num: '',
+    remark: ''
+  }
 
 
   constructor(public ipoService: IPOService, config: NgbModalConfig, private modalService: NgbModal) {
@@ -45,12 +51,8 @@ export class UpdateIPODetailsComponent implements OnInit {
     this.modalService.open(content);
   }
 
-  // addIpo(value: any, valid: boolean) {
-
-  // }
-
   addIpo() {
-
+    console.log(this.addedIPO)
   }
 
   get IPOList(): IPO[] {

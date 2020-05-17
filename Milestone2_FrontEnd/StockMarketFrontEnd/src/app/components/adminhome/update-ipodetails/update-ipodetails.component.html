@@ -1,39 +1,83 @@
 <h4>IPO details</h4>
-<button class="btn  btn-info" (click)="open(addIpo)">Add </button>
-<ng-template #addIpo let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Add IPO</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div class="form-group">
-            <span><label for="comName">Company Name</label>
-                <input type="text" class="form-control" id="comName" name="CompanyName"></span>
+<button class="btn  btn-info" (click)="open(addIPO)">Add </button>
+<!-- issue: (ngSubmit)="addIpo(myForm.value, myForm.valid) 方法不执行"  -->
+<!-- 通过addedIPO双向绑定获取表单数据 -->
+<form #myForm="ngForm" novalidate>
+    <ng-template #addIPO let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Add IPO</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <div class="form-group">
-            <span><label for="stockExchange">Stock Exchange</label>
-                <input type="text" class="form-control" id="stockExchange" name="stockExchange"></span>
+        <div class="modal-body">
+            <div class="form-group">
+                <span><label for="comName">Company Name</label>
+                    <input type="text" class="form-control" id="comName" #comName="ngModel" ngModel name="company_name"
+                        required [(ngModel)]="addedIPO.company_name"></span>
+            </div>
+            <div *ngIf="comName.invalid && (comName.dirty || comName.touched)" class="alert alert-danger">
+                <div *ngIf="comName.errors.required">
+                    Company Name is required.
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="SE">Stock Exchange:</label>
+                <select class="form-control" id="SE" #se2="ngModel" ngModel name="stock_exchange" required
+                    [(ngModel)]="addedIPO.stock_exchange">
+                    <option value="BSE">BSE</option>
+                    <option value="NSE">NSE</option>
+                </select>
+            </div>
+            <div *ngIf="se2.invalid && (se2.dirty || se2.touched)" class="alert alert-danger">
+                <div *ngIf="se2.errors.required">
+                    Stock Exchange is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <span><label for="pricepershare">Price Per Share</label>
+                    <input type="text" class="form-control" id="pricepershare" #pricepershare="ngModel" ngModel
+                        name="price_per_share" required [(ngModel)]="addedIPO.price_per_share"></span>
+            </div>
+            <div *ngIf="pricepershare.invalid && (pricepershare.dirty || pricepershare.touched)"
+                class="alert alert-danger">
+                <div *ngIf="pricepershare.errors.required">
+                    Price Per Share is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <span><label for="totalshares">Total Number of Shares</label>
+                    <input type="text" class="form-control" id="totalshares" #totalshares="ngModel" ngModel
+                        name="total_num" required [(ngModel)]="addedIPO.total_num"></span>
+            </div>
+            <div *ngIf="totalshares.invalid && (totalshares.dirty || totalshares.touched)" class="alert alert-danger">
+                <div *ngIf="totalshares.errors.required">
+                    Total Number of Shares is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <span><label for="remark">Remark</label>
+                    <input type="text" class="form-control" id="remark" #remark="ngModel" required ngModel name="remark"
+                        [(ngModel)]="addedIPO.remark"></span>
+            </div>
+            <div *ngIf=" remark.invalid && (remark.dirty || remark.touched)" class="alert alert-danger">
+                <div *ngIf="remark.errors.required">
+                    Remark of Shares is required.
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <span><label for="pricepershare">Price Per Share</label>
-                <input type="text" class="form-control" id="pricepershare" name="pricepershare"></span>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">Cancel</button>
+            <!-- <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.form.valid"
+                (click)="c('Save click')">Save</button> -->
+            <button type="button" class="btn btn-outline-dark" [disabled]="!myForm.form.valid"
+                (click)="addIpo()">Save</button>
         </div>
-        <div class="form-group">
-            <span><label for="totalshares">Total Number of Shares</label>
-                <input type="text" class="form-control" id="totalshares" name="totalshares"></span>
-        </div>
-        <div class="form-group">
-            <span><label for="remark">Remark</label>
-                <input type="text" class="form-control" id="remark" name="remark"></span>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">Cancel</button>
-        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
-    </div>
-</ng-template>
+
+        {{ myForm.value | json }}
+        {{ myForm.valid}}
+    </ng-template>
+</form>
 <table class="table table-striped">
     <thead>
         <tr>
