@@ -1,10 +1,10 @@
 export class IPO {
     id: number;
-    companyName: string;
-    stockExchange: string;
-    pricePerShare: number;
-    totalNumber: string;
-    openDateTime: Date;
+    company_name: string;
+    stock_exchange: string;
+    price_per_share: number;
+    total_num: string;
+    open_date_time: Date;
     remark: string;
 }
 

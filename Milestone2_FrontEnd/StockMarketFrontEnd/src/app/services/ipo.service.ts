@@ -11,7 +11,8 @@ export class IPOService {
 
   // USER
   getIPOs() {
-    let api = environment.baseUrl + '/user/ipo/list'
+    // let api = environment.baseUrl + '/user/ipo/list'
+    let api = "http://localhost:9002/user/ipo/list"
     return this.http.get(api)
   }
 }

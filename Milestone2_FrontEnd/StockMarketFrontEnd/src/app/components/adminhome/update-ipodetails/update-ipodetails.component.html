@@ -1,5 +1,5 @@
 <h4>IPO details</h4>
-<button class="btn  btn-info" >Add </button>
+<button class="btn  btn-info">Add </button>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -19,12 +19,12 @@
             <th scope="row">{{ ipo.id }}</th>
             <td>
 
-                {{ ipo.companyName }}
+                {{ ipo.company_name }}
             </td>
-            <td>{{ ipo.stockExchange}}</td>
-            <td>{{ ipo.pricePerShare}}</td>
-            <td>{{ ipo.totalNumber }}</td>
-            <td>{{ ipo.openDateTime }}</td>
+            <td>{{ ipo.stock_exchange}}</td>
+            <td>{{ ipo.price_per_share}}</td>
+            <td>{{ ipo.total_num }}</td>
+            <td>{{ ipo.open_date_time }}</td>
             <td>{{ ipo.remark }}</td>
             <td><button class="btn btn-info" (click)="open(editIpo,ipo)">Edit</button></td>
         </tr>
@@ -58,27 +58,27 @@
         <div class="form-group">
             <span><label for="CompanyName">Stock Exchange</label>
                 <input type="text" class="form-control" id="CompanyName" name="CompanyName"
-                    [(ngModel)]="currentIPO.companyName" #CompanyName="ngModel" readonly></span>
+                    [(ngModel)]="currentIPO.company_name" #CompanyName="ngModel" readonly></span>
         </div>
         <div class="form-group">
             <span><label for="stockExchange">Stock Exchange</label>
                 <input type="text" class="form-control" id="stockExchange" name="stockExchange"
-                    [(ngModel)]="currentIPO.stockExchange" #stockExchange="ngModel"></span>
+                    [(ngModel)]="currentIPO.stock_exchange" #stockExchange="ngModel"></span>
         </div>
         <div class="form-group">
             <span><label for="pricepershare">Price Per Share</label>
                 <input type="text" class="form-control" id="pricepershare" name="pricepershare"
-                    [(ngModel)]="currentIPO.pricePerShare" #pricepershare="ngModel"></span>
+                    [(ngModel)]="currentIPO.price_per_share" #pricepershare="ngModel"></span>
         </div>
         <div class="form-group">
             <span><label for="totalshares">Total Number of Shares</label>
                 <input type="text" class="form-control" id="totalshares" name="totalshares"
-                    [(ngModel)]="currentIPO.totalNumber" #totalshares="ngModel"></span>
+                    [(ngModel)]="currentIPO.total_num" #totalshares="ngModel"></span>
         </div>
         <div class="form-group">
             <span><label for="opendatetime">Open Date Time</label>
                 <input type="text" class="form-control" id="opendatetime" name="opendatetime"
-                    [(ngModel)]="currentIPO.openDateTime" #opendatetime="ngModel"
+                    [(ngModel)]="currentIPO.open_date_time" #opendatetime="ngModel"
                     placeholder="YYYY-mm-dd hh:mm:ss"></span>
         </div>
         <div class="form-group">

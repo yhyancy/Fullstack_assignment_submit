@@ -1,68 +1,69 @@
 import { Component, OnInit } from '@angular/core';
 import { IPO } from '../../../Model/ipo'
+import { IPOlist } from '../../../Mock/ipoList'
 import { IPOService } from '../../../services/ipo.service'
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
-const IPOlist: IPO[] = [
-  {
-    id: 1,
-    companyName: 'KFC',
-    stockExchange: 'ASE',
-    pricePerShare: 356.23,
-    totalNumber: '1356.23',
-    openDateTime: new Date(),
-    remark: 'REMARK1'
-  },
-  {
-    id: 2,
-    companyName: 'KFC',
-    stockExchange: 'ASE',
-    pricePerShare: 356.23,
-    totalNumber: '1356.23',
-    openDateTime: new Date(),
-    remark: 'REMARK1'
-  },
-  {
-    id: 3,
-    companyName: 'KFC',
-    stockExchange: 'ASE',
-    pricePerShare: 356.23,
-    totalNumber: '1356.23',
-    openDateTime: new Date(),
-    remark: 'REMARK1'
-  },
-  {
-    id: 4,
-    companyName: 'KFC',
-    stockExchange: 'ASE',
-    pricePerShare: 356.23,
-    totalNumber: '1356.23',
-    openDateTime: new Date(),
-    remark: 'REMARK1'
-  }
-  ,
-  {
-    id: 5,
-    companyName: 'KFC',
-    stockExchange: 'ASE',
-    pricePerShare: 356.23,
-    totalNumber: '1356.23',
-    openDateTime: new Date(),
-    remark: 'REMARK1'
-  }
-  ,
-  {
-    id: 6,
-    companyName: 'KFC',
-    stockExchange: 'ASE',
-    pricePerShare: 356.23,
-    totalNumber: '1356.23',
-    openDateTime: new Date(),
-    remark: 'REMARK1'
-  }
+// const IPOlist: IPO[] = [
+//   {
+//     id: 1,
+//     companyName: 'KFC',
+//     stockExchange: 'ASE',
+//     pricePerShare: 356.23,
+//     totalNumber: '1356.23',
+//     openDateTime: new Date(),
+//     remark: 'REMARK1'
+//   },
+//   {
+//     id: 2,
+//     companyName: 'KFC',
+//     stockExchange: 'ASE',
+//     pricePerShare: 356.23,
+//     totalNumber: '1356.23',
+//     openDateTime: new Date(),
+//     remark: 'REMARK1'
+//   },
+//   {
+//     id: 3,
+//     companyName: 'KFC',
+//     stockExchange: 'ASE',
+//     pricePerShare: 356.23,
+//     totalNumber: '1356.23',
+//     openDateTime: new Date(),
+//     remark: 'REMARK1'
+//   },
+//   {
+//     id: 4,
+//     companyName: 'KFC',
+//     stockExchange: 'ASE',
+//     pricePerShare: 356.23,
+//     totalNumber: '1356.23',
+//     openDateTime: new Date(),
+//     remark: 'REMARK1'
+//   }
+//   ,
+//   {
+//     id: 5,
+//     companyName: 'KFC',
+//     stockExchange: 'ASE',
+//     pricePerShare: 356.23,
+//     totalNumber: '1356.23',
+//     openDateTime: new Date(),
+//     remark: 'REMARK1'
+//   }
+//   ,
+//   {
+//     id: 6,
+//     companyName: 'KFC',
+//     stockExchange: 'ASE',
+//     pricePerShare: 356.23,
+//     totalNumber: '1356.23',
+//     openDateTime: new Date(),
+//     remark: 'REMARK1'
+//   }
 
-];
+// ];
 @Component({
   selector: 'app-ipo-list',
   templateUrl: './ipo-list.component.html',
@@ -71,10 +72,12 @@ const IPOlist: IPO[] = [
 })
 
 export class IPOListComponent implements OnInit {
+  //IPOlist用于接收从后台的传来的数据
+  public IPOlist: IPO[] = []
   page = 1;
   pageSize = 4;
-  collectionSize = IPOlist.length;
-  // public IPOList:any; // TODO:用于接收从后台的传来的数据
+  collectionSize = this.IPOlist.length;
+
   public currentIPO: any = {}
   constructor(public ipoService: IPOService, config: NgbModalConfig, private modalService: NgbModal) {
     config.backdrop = 'static';
@@ -82,18 +85,15 @@ export class IPOListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO: 从后台获取IPO信息
     this.getIpos()
   }
   getIpos() {
-    //TODO:
-    // this.IPOList= this.ipoService.getIPOs()
+    // 从后台获取IPO信息
+    this.ipoService.getIPOs().subscribe((data: any) => {
+      console.log(data)
+      this.IPOlist = data
+    })
   }
-
-  // TODO: 未完成
-  // currentIPO(key) {
-  //   console.log(key)
-  // }
 
   // open IPO Detail,获取当前行的数据
   open(content: any, value: any) {
@@ -105,7 +105,7 @@ export class IPOListComponent implements OnInit {
 
   // Pagination
   get IPOList(): IPO[] {
-    return IPOlist
+    return this.IPOlist
       .map((IPO, i) => ({ id: i + 1, ...IPO }))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
