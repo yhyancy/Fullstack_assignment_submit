@@ -35,8 +35,12 @@ export class UpdateIPODetailsComponent implements OnInit {
     })
   }
 
-  open(content: any, data: any) {
-    this.currentIPO = data
+  // open(content: any, data: any) {
+  //   this.currentIPO = data
+  //   this.modalService.open(content);
+  // }
+  open(content: any) {
+    // this.currentIPO = data
     this.modalService.open(content);
   }
 

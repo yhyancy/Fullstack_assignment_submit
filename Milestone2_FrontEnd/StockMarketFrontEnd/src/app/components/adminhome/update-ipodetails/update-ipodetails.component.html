@@ -1,5 +1,39 @@
 <h4>IPO details</h4>
-<button class="btn  btn-info">Add </button>
+<button class="btn  btn-info" (click)="open(addIpo)">Add </button>
+<ng-template #addIpo let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add IPO</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <span><label for="comName">Company Name</label>
+                <input type="text" class="form-control" id="comName" name="CompanyName"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="stockExchange">Stock Exchange</label>
+                <input type="text" class="form-control" id="stockExchange" name="stockExchange"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="pricepershare">Price Per Share</label>
+                <input type="text" class="form-control" id="pricepershare" name="pricepershare"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="totalshares">Total Number of Shares</label>
+                <input type="text" class="form-control" id="totalshares" name="totalshares"></span>
+        </div>
+        <div class="form-group">
+            <span><label for="remark">Remark</label>
+                <input type="text" class="form-control" id="remark" name="remark"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+</ng-template>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -10,8 +44,7 @@
             <th scope="col">Total Number of Shares</th>
             <th scope="col">Open Date Time</th>
             <th scope="col">Remark</th>
-            <th scope="col">Action</th>
-
+            <!-- <th scope="col">Action</th> -->
         </tr>
     </thead>
     <tbody>
@@ -26,7 +59,7 @@
             <td>{{ ipo.total_num }}</td>
             <td>{{ ipo.open_date_time }}</td>
             <td>{{ ipo.remark }}</td>
-            <td><button class="btn btn-info" (click)="open(editIpo,ipo)">Edit</button></td>
+            <!-- <td><button class="btn btn-info" (click)="open(editIpo,ipo)">Edit</button></td> -->
         </tr>
     </tbody>
 </table>
@@ -42,7 +75,7 @@
     </select>
 </div>
 <!-- edit ipo modal -->
-<ng-template #editIpo let-c="close" let-d="dismiss">
+<!-- <ng-template #editIpo let-c="close" let-d="dismiss">
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Update an IPO</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -90,4 +123,4 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
     </div>
-</ng-template>
+</ng-template> -->
