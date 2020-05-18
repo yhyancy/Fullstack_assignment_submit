@@ -10,12 +10,13 @@ import { IPOService } from '../../../services/ipo.service'
   providers: [NgbModalConfig, NgbModal]
 })
 export class UpdateIPODetailsComponent implements OnInit {
-  //IPOlist用于接收从后台的传来的数据
-  public IPOlist: IPO[] = []
+
   page = 1;
   pageSize = 4;
-  collectionSize = this.IPOlist.length;
-  // public ipoList: IPO[] = IPOlist
+  collectionSize: any
+
+  //IPOlist用于接收从后台的传来的数据
+  public IPOlist: IPO[] = []
   public currentIPO: IPO
   public addedIPO: any = {
     company_name: '',
@@ -40,6 +41,8 @@ export class UpdateIPODetailsComponent implements OnInit {
     this.ipoService.getAdminIPOs().subscribe((data: any) => {
       console.log(data)
       this.IPOlist = data
+      // 分页
+      this.collectionSize = this.IPOlist.length;
     })
   }
 
