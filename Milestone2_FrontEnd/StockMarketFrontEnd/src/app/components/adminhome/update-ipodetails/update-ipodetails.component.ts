@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPO } from '../../../Model/ipo'
 import { IPOlist } from '../../../Mock/ipoList'// mock 数据
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalConfig, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { IPOService } from '../../../services/ipo.service'
 @Component({
   selector: 'app-update-ipodetails',
@@ -24,7 +24,8 @@ export class UpdateIPODetailsComponent implements OnInit {
     total_num: '',
     remark: ''
   }
-
+  modalRef: NgbModalRef;
+  result: any
 
   constructor(public ipoService: IPOService, config: NgbModalConfig, private modalService: NgbModal) {
     config.backdrop = 'static';
@@ -42,17 +43,27 @@ export class UpdateIPODetailsComponent implements OnInit {
     })
   }
 
-  // open(content: any, data: any) {
-  //   this.currentIPO = data
-  //   this.modalService.open(content);
-  // }
   open(content: any) {
     // this.currentIPO = data
-    this.modalService.open(content);
+    this.modalRef = this.modalService.open(content, { size: 'lg' });
   }
 
   addIpo() {
     console.log(this.addedIPO)
+    this.ipoService.addIpo(this.addedIPO).subscribe((data: any) => {
+      console.log(data)
+      if (data.status == 'ok') {
+        alert('add IPO successfully.')
+        // close modal
+        this.modalRef.close()
+        // 重新渲染页面
+        this.getIpos()
+      }
+      else {
+        alert('add IPO failed.')
+      }
+    })
+
   }
 
   get IPOList(): IPO[] {

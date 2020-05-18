@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; //请求数据
+import { HttpClient, HttpHeaders } from '@angular/common/http'; //请求数据
 import { environment } from '../../environments/environment' //root url
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,13 @@ export class IPOService {
     let api = "http://localhost:9002/admin/ipo/list"
     return this.http.get(api)
   }
+
   // admin/ipo/add
+  addIpo(ipo: any) {
+    let api = "http://localhost:9002/admin/ipo/add"
+    const httpOtions = { headers: new HttpHeaders({ 'content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'true' }) };
+    return this.http.post(api, JSON.stringify(ipo), httpOtions)
+
+  }
 
 }
