@@ -72,12 +72,13 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class IPOListComponent implements OnInit {
-  //IPOlist用于接收从后台的传来的数据
-  public IPOlist: IPO[] = []
+  // 分页
   page = 1;
   pageSize = 4;
-  collectionSize = this.IPOlist.length;
+  collectionSize: any
 
+  //IPOlist用于接收从后台的传来的数据
+  public IPOlist: IPO[] = []
   public currentIPO: any = {}
   constructor(public ipoService: IPOService, config: NgbModalConfig, private modalService: NgbModal) {
     config.backdrop = 'static';
@@ -92,6 +93,8 @@ export class IPOListComponent implements OnInit {
     this.ipoService.getUserIPOs().subscribe((data: any) => {
       console.log(data)
       this.IPOlist = data
+      // 分页
+      this.collectionSize = this.IPOlist.length
     })
   }
 
