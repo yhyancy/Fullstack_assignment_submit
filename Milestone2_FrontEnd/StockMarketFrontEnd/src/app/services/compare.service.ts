@@ -9,11 +9,14 @@ export class CompareService {
 
   constructor(public http: HttpClient) { }
 
+
   //  standard chart
   // 一个公司，不同时间段
   compareSingleCompany(value: any) {
+    let api = "http://localhost:8084/compare/company/single"
     const httpOtions = { headers: new HttpHeaders({ 'content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'true' }) };
-    return this.http.post(`${environment.baseUrl}/compare/company/single`, JSON.stringify(value), httpOtions);
+    // return this.http.post(`${environment.baseUrl}/compare/company/single`, JSON.stringify(value), httpOtions);
+    return this.http.post(api, JSON.stringify(value), httpOtions);
   }
   // 一个sector，不同时间段
   compareSingleSector(value: any) {
