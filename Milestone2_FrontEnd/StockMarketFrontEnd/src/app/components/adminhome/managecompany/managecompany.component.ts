@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { COMPANY } from '../../../Model/company';
 import { ManageCompanyService } from '../../../services/manage-company.service'
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';  //modal
 
 @Component({
   selector: 'app-managecompany',
   templateUrl: './managecompany.component.html',
-  styleUrls: ['./managecompany.component.scss']
+  styleUrls: ['./managecompany.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class ManagecompanyComponent implements OnInit {
 
@@ -15,13 +17,17 @@ export class ManagecompanyComponent implements OnInit {
 
   // companyList用于接收后台的数据
   public companyList: COMPANY[] = []
-  constructor(public manageCompanyService: ManageCompanyService) { }
+  constructor(public manageCompanyService: ManageCompanyService, config: NgbModalConfig, private modalService: NgbModal) {
+    // customize default values of modals used by this component tree
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
 
   ngOnInit(): void {
     this.getComapnyList()
   }
+  //  后台获取 companylist
   getComapnyList() {
-    //  后台获取 companylist
     this.manageCompanyService.getCompanyList().subscribe((data: any) => {
       console.log(data)
       this.companyList = data
@@ -29,6 +35,15 @@ export class ManagecompanyComponent implements OnInit {
       this.collectionSize = this.companyList.length
     })
   }
+  // 添加公司
+  openScrollableContent(content) {
+    this.modalService.open(content);
+  }
+  // 停用公司
+  disableCompany() {
+    console.log('disable company')
+  }
+
   // 分页
   get CompanyList(): COMPANY[] {
     return this.companyList
