@@ -35,7 +35,8 @@ import { CompareService } from './services/compare.service'
 import { ManageCompanyService } from './services/manage-company.service'
 import { JwtInterceptor } from './interceptor/jwt-interceptor';
 import { EmailConfirmComponent } from './components/email-confirm/email-confirm.component';
-import { EmailpromptComponent } from './components/emailprompt/emailprompt.component'
+import { EmailpromptComponent } from './components/emailprompt/emailprompt.component';
+import { ManagecompanyComponent } from './components/adminhome/managecompany/managecompany.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { EmailpromptComponent } from './components/emailprompt/emailprompt.compo
     EqualValidatorDirective,
     EmailValidatorDirective,
     EmailConfirmComponent,
-    EmailpromptComponent
+    EmailpromptComponent,
+    ManagecompanyComponent
 
   ],
   imports: [

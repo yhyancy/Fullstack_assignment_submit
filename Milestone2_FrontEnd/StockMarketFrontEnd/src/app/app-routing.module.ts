@@ -17,6 +17,7 @@ import { UpdateIPODetailsComponent } from './components/adminhome/update-ipodeta
 import { LoginGuard } from './guard/login.guard' //路由守卫
 import { EmailConfirmComponent } from './components/email-confirm/email-confirm.component'
 import { EmailpromptComponent } from './components/emailprompt/emailprompt.component'
+import { ManagecompanyComponent } from './components/adminhome/managecompany/managecompany.component'
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     path: 'adminhome', component: AdminhomeComponent, children: [
       { path: 'import-data', component: ImportDataComponent },
       { path: 'manage-company', component: ManageCompanyComponent },
+      { path: 'manage-company2', component: ManagecompanyComponent },
       { path: 'manage-exchange', component: ManageExchangeComponent },
       { path: 'update-ipodetails', component: UpdateIPODetailsComponent },
       { path: '**', redirectTo: 'import-data' }
