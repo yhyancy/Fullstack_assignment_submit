@@ -56,7 +56,9 @@ export class ManageCompanyComponent implements OnInit {
   }
   // 从后台获取数据
   getCompanyList() {
-
+    this.manageCompanyService.getCompanyList().subscribe((data) => {
+      console.log(data)
+    })
 
   }
 
