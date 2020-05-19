@@ -6,6 +6,7 @@ import { COMPANY } from '../../../Model/company';
 import { CompanyService } from '../../../services/company.service';
 import { NgbdSortableHeader, SortEvent } from '../../../directives/sortable.directive';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ManageCompanyService } from '../../../services/manage-company.service'
 
 @Component({
   selector: 'app-manage-company',
@@ -28,7 +29,7 @@ export class ManageCompanyComponent implements OnInit {
     remark: ''
   }
 
-  constructor(public service: CompanyService, config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(public service: CompanyService, public manageCompanyService: ManageCompanyService, config: NgbModalConfig, private modalService: NgbModal) {
     // TODO: 从后台获取CompnayList
     // this.companyList$ = service.getCompanyList;
     this.companyList$ = service.companyList$;
@@ -51,6 +52,12 @@ export class ManageCompanyComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getCompanyList()
+  }
+  // 从后台获取数据
+  getCompanyList() {
+
+
   }
 
   openScrollableContent(content: any, value: any) {
