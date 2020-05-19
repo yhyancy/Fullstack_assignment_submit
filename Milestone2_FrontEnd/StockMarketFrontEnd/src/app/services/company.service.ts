@@ -52,17 +52,6 @@ function matches(company: COMPANY, term: string, pipe: PipeTransform) {
         || company.companyCode.toString().includes(term.toString())
         || company.turnover.toString().includes(term.toString())
         || company.stockCode.toString().includes(term.toString())
-    // || company.sectorName.toUpperCase().includes(term.toUpperCase())
-    // || pipe.transform(company.id).includes(term)
-    // || pipe.transform(company.companyCode).includes(term)
-    // || pipe.transform(company.turnover).includes(term)
-    // || pipe.transform(company.boardofdirectors).includes(term)
-    // || pipe.transform(company.ceo).includes(term)
-    // || pipe.transform(company.listedinse).includes(term)
-    // // || pipe.transform(company.sectorName).includes(term)
-    // || pipe.transform(company.brifewriteup).includes(term)
-    // || pipe.transform(company.stockCode).includes(term)
-    // || pipe.transform(company.companyStatus).includes(term);
 
 }
 
