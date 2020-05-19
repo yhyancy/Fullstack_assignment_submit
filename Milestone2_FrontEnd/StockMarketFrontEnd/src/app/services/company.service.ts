@@ -41,17 +41,17 @@ function sort(companyList: COMPANY[], column: SortColumn, direction: string): CO
 
 // function matches(country: COMPANY, term: string, pipe: PipeTransform) {
 function matches(company: COMPANY, term: string, pipe: PipeTransform) {
-    return company.companyName.toLowerCase().includes(term.toLowerCase())
+    return company.company_name.toLowerCase().includes(term.toLowerCase())
         || company.ceo.toUpperCase().includes(term.toUpperCase())
-        || company.boardofdirectors.toUpperCase().includes(term.toUpperCase())
-        || company.sectorName.toUpperCase().includes(term.toUpperCase())
-        || company.brifewriteup.toUpperCase().includes(term.toUpperCase())
-        || company.companyStatus.toUpperCase().includes(term.toUpperCase())
-        || company.listedinse.toLowerCase().includes(term.toLowerCase())
+        || company.board_of_director.toUpperCase().includes(term.toUpperCase())
+        || company.sector_name.toUpperCase().includes(term.toUpperCase())
+        || company.brife_write_up.toUpperCase().includes(term.toUpperCase())
+        || company.company_status.toUpperCase().includes(term.toUpperCase())
+        || company.listed_in_se.toLowerCase().includes(term.toLowerCase())
         || company.id.toString().includes(term.toString())
-        || company.companyCode.toString().includes(term.toString())
+        || company.company_code.toString().includes(term.toString())
         || company.turnover.toString().includes(term.toString())
-        || company.stockCode.toString().includes(term.toString())
+        || company.stock_code.toString().includes(term.toString())
 
 }
 

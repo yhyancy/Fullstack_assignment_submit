@@ -29,10 +29,10 @@
             <tr *ngFor="let item of companyList$ | async">
                 <th scope="row">{{ item.id }}</th>
                 <td>
-                    <ngb-highlight [result]="item.companyCode" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.company_code" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <ngb-highlight [result]="item.companyName" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.company_name" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
                     <ngb-highlight [result]="item.turnover" [term]="service.searchTerm"></ngb-highlight>
@@ -41,22 +41,22 @@
                     <ngb-highlight [result]="item.ceo" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <ngb-highlight [result]="item.boardofdirectors" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.board_of_director" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <ngb-highlight [result]="item.listedinse" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.listed_in_se" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <ngb-highlight [result]="item.sectorName" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.sector_name" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <ngb-highlight [result]="item.brifewriteup" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.brife_write_up" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <ngb-highlight [result]="item.stockCode" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.stock_code" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                    <ngb-highlight [result]="item.companyStatus" [term]="service.searchTerm"></ngb-highlight>
+                    <ngb-highlight [result]="item.company_status" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
                     <button type="button" class="btn btn-info"

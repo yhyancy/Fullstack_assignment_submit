@@ -3,22 +3,36 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Country</th>
-            <th scope="col">Area</th>
-            <th scope="col">Population</th>
+            <th scope="col">ID</th>
+            <th scope="col">Company Code</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Turnower($)</th>
+            <th scope="col">CEO</th>
+            <th scope="col">Board Of Direcitors</th>
+            <th scope="col">Listed in SE</th>
+            <th scope="col">Sector Name</th>
+            <th scope="col">Brief Writeup</th>
+            <th scope="col">Stock Code</th>
+            <th scope="col">Company Status</th>
+            <th scope="col">Action</th>
+            <th scope="col">Disable Company</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let country of countries">
-            <th scope="row">{{ country.id }}</th>
-            <td>
-                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2"
-                    style="width: 20px">
-                {{ country.name }}
-            </td>
-            <td>{{ country.area | number}}</td>
-            <td>{{ country.population | number }}</td>
+        <tr *ngFor="let company of companyList">
+            <th scope="row">{{ company.id }}</th>
+            <td> {{ company.company_code }} </td>
+            <td>{{ company.company_name  }}</td>
+            <td>{{ company.turnover }}</td>
+            <td>{{ company.ceo }}</td>
+            <td>{{ company.board_of_director }}</td>
+            <td>{{ company.listed_in_se }}</td>
+            <td>{{ company.sector_name }}</td>
+            <td>{{ company.brife_write_up }}</td>
+            <td>{{ company.stock_code }}</td>
+            <td>{{ company.company_status }}</td>
+            <td><button type="button" class="btn btn-info">Edit</button></td>
+            <td><button type="button" class="btn btn-info">Disable</button></td>
         </tr>
     </tbody>
 </table>
