@@ -15,7 +15,7 @@ export class ManagecompanyComponent implements OnInit {
   pageSize = 4;
   collectionSize: any;
 
-  modalRef: NgbModalRef; //用户关闭modal
+  modalRef: NgbModalRef; //用于关闭modal
 
   // companyList用于接收后台的数据
   public companyList: COMPANY[] = []
