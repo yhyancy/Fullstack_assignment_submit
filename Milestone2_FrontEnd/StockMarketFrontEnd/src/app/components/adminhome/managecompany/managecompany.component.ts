@@ -73,8 +73,18 @@ export class ManagecompanyComponent implements OnInit {
 
   // 更新公司
   editCompany() {
+    this.manageCompanyService.editCompany(this.currentCompany).subscribe((data: any) => {
+      console.log(data)
+      if (data.status == "ok") {
+        // 关闭modal
+        this.modalRef.close()
+        // 重新渲染页面
+        this.getComapnyList()
+      } else {
+        alert('edit company failed.')
+      }
 
-    alert('edit company')
+    })
   }
 
   // 停用公司
