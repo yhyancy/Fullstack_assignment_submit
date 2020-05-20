@@ -50,7 +50,7 @@ export class ManagecompanyComponent implements OnInit {
   }
   // 打开AddCompany modal
   openScrollableContent(content) {
-    this.modalService.open(content);
+    this.modalRef = this.modalService.open(content);
   }
   // 添加公司
   addCompany() {
@@ -67,6 +67,7 @@ export class ManagecompanyComponent implements OnInit {
       }
     })
   }
+
   // 更新公司
 
   // 停用公司
