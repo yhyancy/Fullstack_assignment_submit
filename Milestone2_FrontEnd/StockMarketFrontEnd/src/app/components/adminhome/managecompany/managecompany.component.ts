@@ -40,8 +40,17 @@ export class ManagecompanyComponent implements OnInit {
     this.modalService.open(content);
   }
   // 停用公司
-  disableCompany() {
-    console.log('disable company')
+  disableCompany(company: COMPANY) {
+    this.manageCompanyService.disableCompany(company).subscribe((data: any) => {
+      console.log(data)
+      if (data.status == "ok") {
+        // 重新渲染页面
+        this.getComapnyList()
+      }
+      else {
+        alert('disable company failed.')
+      }
+    })
   }
 
   // 分页
