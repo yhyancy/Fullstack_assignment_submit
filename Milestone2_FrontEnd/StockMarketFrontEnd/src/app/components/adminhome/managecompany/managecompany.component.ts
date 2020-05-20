@@ -69,6 +69,10 @@ export class ManagecompanyComponent implements OnInit {
   }
 
   // 更新公司
+  editCompany(company: COMPANY) {
+    console.log(company)
+
+  }
 
   // 停用公司
   disableCompany(company: COMPANY) {
