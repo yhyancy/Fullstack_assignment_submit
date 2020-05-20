@@ -17,6 +17,18 @@ export class ManagecompanyComponent implements OnInit {
 
   // companyList用于接收后台的数据
   public companyList: COMPANY[] = []
+  public addCompany: any = {
+    company_code: '',
+    company_name: '',
+    turnover: null,
+    ceo: '',
+    board_of_director: '',
+    listed_in_se: 'No',
+    sector_name: '',
+    brife_write_up: '',
+    stock_code: '',
+    company_status: 'Inactive'
+  }
   constructor(public manageCompanyService: ManageCompanyService, config: NgbModalConfig, private modalService: NgbModal) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
@@ -35,7 +47,7 @@ export class ManagecompanyComponent implements OnInit {
       this.collectionSize = this.companyList.length
     })
   }
-  // 添加公司
+  // 添加&更新公司
   openScrollableContent(content) {
     this.modalService.open(content);
   }

@@ -59,48 +59,56 @@
     <div class="modal-body">
         <div class="form-group">
             <span><label for="companyCode">Company Code</label>
-                <input type="text" class="form-control" id="companyCode" name="companyCode"></span>
+                <input type="text" class="form-control" id="companyCode" ngModel name="companyCode"
+                    [(ngModel)]="addCompany.company_code"></span>
         </div>
         <div class="form-group">
             <span><label for="CompanyName">Company Name</label>
-                <input type="text" class="form-control" id="CompanyName" name="CompanyName"></span>
+                <input type="text" class="form-control" id="CompanyName" ngModel name="CompanyName"
+                    [(ngModel)]="addCompany.company_name"></span>
         </div>
         <div class="form-group">
             <span><label for="turnover">Turnover($)</label>
-                <input type="text" class="form-control" id="turnover" name="turnover"></span>
+                <input type="text" class="form-control" id="turnover" ngModel name="turnover"
+                    [(ngModel)]="addCompany.turnover"></span>
         </div>
         <div class="form-group">
             <span><label for="ceo">CEO</label>
-                <input type="text" class="form-control" id="ceo" name="ceo"></span>
+                <input type="text" class="form-control" id="ceo" ngModel name="ceo" [(ngModel)]="addCompany.ceo"></span>
         </div>
         <div class="form-group">
             <span><label for="boardofdirectors">Board of Directors</label>
-                <input type="text" class="form-control" id="boardofdirectors" name="boardofdirectors"></span>
+                <input type="text" class="form-control" id="boardofdirectors" ngModel name="boardofdirectors"
+                    [(ngModel)]="addCompany.board_of_director"></span>
         </div>
         <div class="form-group">
             <label for="listedinse">Listed in Stock Exchange</label>
-            <select class="form-control" id="selectSE">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+            <select class="form-control" id="se" ngModel name="se" [(ngModel)]="addCompany.listed_in_se">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select>
         </div>
         <div class="form-group">
             <span><label for="sectorName">Sector Name</label>
-                <input type="text" class="form-control" id="sectorName" name="sectorName"></span>
+                <input type="text" class="form-control" id="sectorName" ngModel name="sectorName"
+                    [(ngModel)]="addCompany.sector_name"></span>
         </div>
         <div class="form-group">
             <span><label for="brifewriteup">Brief Writeup</label>
-                <input type="text" class="form-control" id="brifewriteup" name="brifewriteup"></span>
+                <input type="text" class="form-control" id="brifewriteup" ngModel name="brifewriteup"
+                    [(ngModel)]="addCompany.brife_write_up"></span>
         </div>
         <div class="form-group">
             <span><label for="stockCode">Stock Code</label>
-                <input type="text" class="form-control" id="stockCode" name="stockCode"></span>
+                <input type="text" class="form-control" id="stockCode" ngModel name="stockCode"
+                    [(ngModel)]="addCompany.stock_code"></span>
         </div>
         <div class="form-group">
             <label for="companyStatus">Company Status</label>
-            <select class="form-control" id="selectSE">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
+            <select class="form-control" id="companyStatus" ngModel name="companyStatus"
+                [(ngModel)]="addCompany.company_status">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
             </select>
         </div>
         <div class="modal-footer">
