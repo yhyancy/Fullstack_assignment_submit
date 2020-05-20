@@ -15,8 +15,6 @@ export class ManagecompanyComponent implements OnInit {
   pageSize = 4;
   collectionSize: any;
 
-  modalRef: NgbModalRef; //用于关闭modal
-
   // companyList用于接收后台的数据
   public companyList: COMPANY[] = []
   public addedCompany: any = {
@@ -31,6 +29,7 @@ export class ManagecompanyComponent implements OnInit {
     stock_code: '',
     company_status: 'Inactive'
   }
+  modalRef: NgbModalRef  //用于关闭modal
   constructor(public manageCompanyService: ManageCompanyService, config: NgbModalConfig, private modalService: NgbModal) {
     // customize default values of modals used by this component tree
     config.backdrop = 'static';
@@ -56,6 +55,17 @@ export class ManagecompanyComponent implements OnInit {
   // 添加公司
   addCompany() {
     console.log(this.addedCompany)
+    this.manageCompanyService.addCompany(this.addedCompany).subscribe((data: any) => {
+      console.log(data)
+      if (data.status == "ok") {
+        // 关闭modal
+        this.modalRef.close()
+        // 重新渲染页面
+        this.getComapnyList()
+      } else {
+        alert('add company failed.')
+      }
+    })
   }
   // 更新公司
 
