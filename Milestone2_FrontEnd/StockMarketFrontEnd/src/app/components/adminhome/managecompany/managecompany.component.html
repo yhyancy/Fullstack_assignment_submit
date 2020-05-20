@@ -60,30 +60,31 @@
         <div class="form-group">
             <span><label for="companyCode">Company Code</label>
                 <input type="text" class="form-control" id="companyCode" ngModel name="company_code"
-                    [(ngModel)]="addCompany.company_code" required></span>
+                    [(ngModel)]="addedCompany.company_code" required></span>
         </div>
         <div class="form-group">
             <span><label for="CompanyName">Company Name</label>
                 <input type="text" class="form-control" id="CompanyName" ngModel name="company_name"
-                    [(ngModel)]="addCompany.company_name"></span>
+                    [(ngModel)]="addedCompany.company_name"></span>
         </div>
         <div class="form-group">
             <span><label for="turnover">Turnover($)</label>
                 <input type="text" class="form-control" id="turnover" ngModel name="turnover"
-                    [(ngModel)]="addCompany.turnover"></span>
+                    [(ngModel)]="addedCompany.turnover"></span>
         </div>
         <div class="form-group">
             <span><label for="ceo">CEO</label>
-                <input type="text" class="form-control" id="ceo" ngModel name="ceo" [(ngModel)]="addCompany.ceo"></span>
+                <input type="text" class="form-control" id="ceo" ngModel name="ceo"
+                    [(ngModel)]="addedCompany.ceo"></span>
         </div>
         <div class="form-group">
             <span><label for="boardofdirectors">Board of Directors</label>
                 <input type="text" class="form-control" id="boardofdirectors" ngModel name="board_of_director"
-                    [(ngModel)]="addCompany.board_of_director"></span>
+                    [(ngModel)]="addedCompany.board_of_director"></span>
         </div>
         <div class="form-group">
             <label for="listedinse">Listed in Stock Exchange</label>
-            <select class="form-control" id="se" ngModel name="listed_in_se" [(ngModel)]="addCompany.listed_in_se">
+            <select class="form-control" id="se" ngModel name="listed_in_se" [(ngModel)]="addedCompany.listed_in_se">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
@@ -91,28 +92,29 @@
         <div class="form-group">
             <span><label for="sectorName">Sector Name</label>
                 <input type="text" class="form-control" id="sectorName" ngModel name="sector_name"
-                    [(ngModel)]="addCompany.sector_name"></span>
+                    [(ngModel)]="addedCompany.sector_name"></span>
         </div>
         <div class="form-group">
             <span><label for="brifewriteup">Brief Writeup</label>
                 <input type="text" class="form-control" id="brifewriteup" ngModel name="brife_write_up"
-                    [(ngModel)]="addCompany.brife_write_up"></span>
+                    [(ngModel)]="addedCompany.brife_write_up"></span>
         </div>
         <div class="form-group">
             <span><label for="stockCode">Stock Code</label>
                 <input type="text" class="form-control" id="stockCode" ngModel name="stock_code"
-                    [(ngModel)]="addCompany.stock_code"></span>
+                    [(ngModel)]="addedCompany.stock_code"></span>
         </div>
         <div class="form-group">
             <label for="companyStatus">Company Status</label>
             <select class="form-control" id="companyStatus" ngModel name="company_status"
-                [(ngModel)]="addCompany.company_status">
+                [(ngModel)]="addedCompany.company_status">
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </select>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Add</button>
+            <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">Cancel</button>
+            <button type="button" class="btn btn-outline-dark" (click)="addCompany()">Add</button>
         </div>
     </div>
 </ng-template>

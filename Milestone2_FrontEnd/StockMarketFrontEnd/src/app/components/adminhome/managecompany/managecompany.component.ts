@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { COMPANY } from '../../../Model/company';
 import { ManageCompanyService } from '../../../services/manage-company.service'
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';  //modal
+import { NgbModalConfig, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';  //modal
 
 @Component({
   selector: 'app-managecompany',
@@ -15,9 +15,11 @@ export class ManagecompanyComponent implements OnInit {
   pageSize = 4;
   collectionSize: any;
 
+  modalRef: NgbModalRef; //用户关闭modal
+
   // companyList用于接收后台的数据
   public companyList: COMPANY[] = []
-  public addCompany: any = {
+  public addedCompany: any = {
     company_code: '',
     company_name: '',
     turnover: null,
@@ -47,10 +49,16 @@ export class ManagecompanyComponent implements OnInit {
       this.collectionSize = this.companyList.length
     })
   }
-  // 添加&更新公司
+  // 打开AddCompany modal
   openScrollableContent(content) {
     this.modalService.open(content);
   }
+  // 添加公司
+  addCompany() {
+    console.log(this.addedCompany)
+  }
+  // 更新公司
+
   // 停用公司
   disableCompany(company: COMPANY) {
     this.manageCompanyService.disableCompany(company).subscribe((data: any) => {
