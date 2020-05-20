@@ -29,6 +29,8 @@ export class ManagecompanyComponent implements OnInit {
     stock_code: '',
     company_status: 'Inactive'
   }
+  public currentCompany: COMPANY
+
   modalRef: NgbModalRef  //用于关闭modal
   constructor(public manageCompanyService: ManageCompanyService, config: NgbModalConfig, private modalService: NgbModal) {
     // customize default values of modals used by this component tree
@@ -48,9 +50,10 @@ export class ManagecompanyComponent implements OnInit {
       this.collectionSize = this.companyList.length
     })
   }
-  // 打开AddCompany modal
-  openScrollableContent(content) {
+  // 打开AddCompany & EditCompany modal
+  openScrollableContent(content: any, value: any) {
     this.modalRef = this.modalService.open(content);
+    this.currentCompany = value
   }
   // 添加公司
   addCompany() {

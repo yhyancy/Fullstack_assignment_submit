@@ -1,5 +1,5 @@
 <h2>IPO LIST</h2>
-<button type="button" class="btn btn-info" (click)="openScrollableContent(AddCompany)">Add</button>
+<button type="button" class="btn btn-info" (click)="openScrollableContent(AddCompany,{})">Add</button>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -31,7 +31,8 @@
             <td>{{ company.brife_write_up }}</td>
             <td>{{ company.stock_code }}</td>
             <td>{{ company.company_status }}</td>
-            <td><button type="button" class="btn btn-info" (click)="openScrollableContent(EditCompany)">Edit</button>
+            <td><button type="button" class="btn btn-info"
+                    (click)="openScrollableContent(EditCompany,company)">Edit</button>
             </td>
             <td><button type="button" class="btn btn-info" (click)="disableCompany(company)">Disable</button></td>
         </tr>
@@ -190,9 +191,19 @@
         </div>
         <div class="modal-body">
             <div class="form-group">
+                <span><label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" ngModel name="ID" [(ngModel)]="currentCompany.id"
+                        required #id="ngModel" readonly></span>
+            </div>
+            <div *ngIf=" id.invalid && (id.dirty || id.touched)" class="alert alert-danger">
+                <div *ngIf="id.errors.required">
+                    ID is required.
+                </div>
+            </div>
+            <div class="form-group">
                 <span><label for="companyCode">Company Code</label>
                     <input type="text" class="form-control" id="companyCode" ngModel name="company_code"
-                        [(ngModel)]="addedCompany.company_code" required #companyCode="ngModel"></span>
+                        [(ngModel)]="currentCompany.company_code" required #companyCode="ngModel"></span>
             </div>
             <div *ngIf=" companyCode.invalid && (companyCode.dirty || companyCode.touched)" class="alert alert-danger">
                 <div *ngIf="companyCode.errors.required">
@@ -202,7 +213,7 @@
             <div class="form-group">
                 <span><label for="CompanyName">Company Name</label>
                     <input type="text" class="form-control" id="CompanyName" ngModel name="company_name"
-                        [(ngModel)]="addedCompany.company_name" required #CompanyName="ngModel" required></span>
+                        [(ngModel)]="currentCompany.company_name" required #CompanyName="ngModel" required></span>
             </div>
             <div *ngIf=" CompanyName.invalid && (CompanyName.dirty || CompanyName.touched)" class="alert alert-danger">
                 <div *ngIf="CompanyName.errors.required">
@@ -212,7 +223,7 @@
             <div class="form-group">
                 <span><label for="turnover">Turnover($)</label>
                     <input type="text" class="form-control" id="turnover" ngModel name="turnover"
-                        [(ngModel)]="addedCompany.turnover" #turnover="ngModel" required></span>
+                        [(ngModel)]="currentCompany.turnover" #turnover="ngModel" required></span>
             </div>
             <div *ngIf=" turnover.invalid && (turnover.dirty || turnover.touched)" class="alert alert-danger">
                 <div *ngIf="turnover.errors.required">
@@ -221,7 +232,7 @@
             </div>
             <div class="form-group">
                 <span><label for="ceo">CEO</label>
-                    <input type="text" class="form-control" id="ceo" ngModel name="ceo" [(ngModel)]="addedCompany.ceo"
+                    <input type="text" class="form-control" id="ceo" ngModel name="ceo" [(ngModel)]="currentCompany.ceo"
                         #ceo="ngModel" required></span>
             </div>
             <div *ngIf=" ceo.invalid && (ceo.dirty || ceo.touched)" class="alert alert-danger">
@@ -232,7 +243,7 @@
             <div class="form-group">
                 <span><label for="boardofdirectors">Board of Directors</label>
                     <input type="text" class="form-control" id="boardofdirectors" ngModel name="board_of_director"
-                        [(ngModel)]="addedCompany.board_of_director" #boardofdirectors="ngModel" required></span>
+                        [(ngModel)]="currentCompany.board_of_director" #boardofdirectors="ngModel" required></span>
             </div>
             <div *ngIf=" boardofdirectors.invalid && (boardofdirectors.dirty || boardofdirectors.touched)"
                 class="alert alert-danger">
@@ -242,8 +253,8 @@
             </div>
             <div class="form-group">
                 <label for="listedinse">Listed in Stock Exchange</label>
-                <select class="form-control" id="se" ngModel name="listed_in_se" [(ngModel)]="addedCompany.listed_in_se"
-                    #se="ngModel" required>
+                <select class="form-control" id="se" ngModel name="listed_in_se"
+                    [(ngModel)]="currentCompany.listed_in_se" #se="ngModel" required>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
@@ -256,7 +267,7 @@
             <div class="form-group">
                 <span><label for="sectorName">Sector Name</label>
                     <input type="text" class="form-control" id="sectorName" ngModel name="sector_name"
-                        [(ngModel)]="addedCompany.sector_name" #sectorName="ngModel" required></span>
+                        [(ngModel)]="currentCompany.sector_name" #sectorName="ngModel" required></span>
             </div>
             <div *ngIf=" sectorName.invalid && (sectorName.dirty || sectorName.touched)" class="alert alert-danger">
                 <div *ngIf="sectorName.errors.required">
@@ -266,7 +277,7 @@
             <div class="form-group">
                 <span><label for="brifewriteup">Brief Writeup</label>
                     <input type="text" class="form-control" id="brifewriteup" ngModel name="brife_write_up"
-                        [(ngModel)]="addedCompany.brife_write_up" #brifewriteup="ngModel" required></span>
+                        [(ngModel)]="currentCompany.brife_write_up" #brifewriteup="ngModel" required></span>
             </div>
             <div *ngIf=" brifewriteup.invalid && (brifewriteup.dirty || brifewriteup.touched)"
                 class="alert alert-danger">
@@ -277,7 +288,7 @@
             <div class="form-group">
                 <span><label for="stockCode">Stock Code</label>
                     <input type="text" class="form-control" id="stockCode" ngModel name="stock_code"
-                        [(ngModel)]="addedCompany.stock_code" #stockCode="ngModel" required></span>
+                        [(ngModel)]="currentCompany.stock_code" #stockCode="ngModel" required></span>
             </div>
             <div *ngIf=" stockCode.invalid && (stockCode.dirty || stockCode.touched)" class="alert alert-danger">
                 <div *ngIf="stockCode.errors.required">
@@ -287,7 +298,7 @@
             <div class="form-group">
                 <label for="companyStatus">Company Status</label>
                 <select class="form-control" id="companyStatus" ngModel name="company_status"
-                    [(ngModel)]="addedCompany.company_status" #companyStatus="ngModel">
+                    [(ngModel)]="currentCompany.company_status" #companyStatus="ngModel">
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
                 </select>
