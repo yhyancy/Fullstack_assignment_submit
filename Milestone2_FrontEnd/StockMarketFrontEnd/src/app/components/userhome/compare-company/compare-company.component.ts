@@ -19,7 +19,6 @@ export class CompareCompanyComponent implements OnInit {
   public Ccatgory: string = "Company"
   public CSE1: string = "BSE"
   public CSE2: string = "BSE"
-  public result: any[] = []
 
   // echarts start
   upColor = '#ec0000';
@@ -27,30 +26,29 @@ export class CompareCompanyComponent implements OnInit {
   downColor = '#00da3c';
   downBorderColor = '#008F28';
 
-  data0 = this.splitData(this.result)
+  public data0: any = {
+    name: '',
+    time1: [],
+    time2: [],
+    price1: [],
+    price2: []
+  }
+  public visiable: boolean = false
+
   splitData(rawData: any) {
     console.log(rawData)
-    var comName = rawData.name
-    var time1 = []
-    var time2 = []
-    var price1 = []
-    var price2 = []
-    var data1 = rawData.splice(1, 1)
-    var data2 = rawData.splice(1, 1)
+    this.data0.name = rawData.name
+    var data1 = rawData.price1
+    var data2 = rawData.price2
 
+    console.log(data1)
+    console.log(this.data0.time1)
     for (var i = 0; i < data1.length; i++) {
-      time1.push(data1.time)
-      time2.push(data2.time)
-      price1.push(data1.price)
-      price2.push(data2.price)
+      this.data0.time1.push(data1[i].time)
+      this.data0.price1.push(data1[i].price)
     }
-    return {
-      comName: comName,
-      time1: time1,
-      time2: time2,
-      price1: price1,
-      price2: price2
-    };
+    console.log(this.data0.time1)
+    console.log(this.data0.price1)
   }
 
   options = {
@@ -76,7 +74,7 @@ export class CompareCompanyComponent implements OnInit {
     },
     xAxis: {
       type: 'category',
-      data: this.data0.time1,
+      data: [],
       scale: true,
       boundaryGap: false,
       axisLine: { onZero: false },
@@ -109,7 +107,7 @@ export class CompareCompanyComponent implements OnInit {
       {
         name: '日K',
         type: 'candlestick',
-        data: this.data0.price1,
+        data: [],
         itemStyle: {
           color: this.upColor,
           color0: this.downColor,
@@ -211,6 +209,20 @@ export class CompareCompanyComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  ngDoCheck(): void {
+    if (this.visiable == true) {
+      this.options.xAxis.data.push(this.data0.time1)
+      this.options.series[0].data.push(this.data0.price1)
+      console.log(this.options.xAxis.data.push(this.data0.time1))
+    }
+
+  }
+  setOptions() {
+    this.options.xAxis.data.push(this.data0.time1)
+    this.options.series[0].data.push(this.data0.price1)
+    console.log(this.options)
+    this.visiable = true
+  }
   generateStandardChart(value: any, valid: boolean) {
     console.log(value)
     if (valid) {
@@ -219,14 +231,15 @@ export class CompareCompanyComponent implements OnInit {
       if (this.Scatagory == "Company") {
         this.compareService.compareSingleCompany(value).subscribe((data: any) => {
           console.log(data)
-          this.result = JSON.parse(data)
-          console.log(this.result)
+          this.splitData(data)
+          this.setOptions()
         })
       }
       // 一个sector，不同时间段
       else {
         this.compareService.compareSingleSector(value).subscribe((data: any) => {
           console.log(data)
+
         })
       }
     }
