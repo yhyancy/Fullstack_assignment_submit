@@ -26,8 +26,7 @@ export class EmailConfirmComponent implements OnInit {
       this.emailConfirm = data
     })
     // 发送请求
-    let api = environment.baseUrl + "/signup/validate?uname=yancy666&code=8244"
-
+    let api = environment.baseUrl + "/signup/validate?uname=" + this.emailConfirm.uname + "&code=" + this.emailConfirm.code
     this.http.get(api).subscribe((response: any) => {
       console.log(response)
       if (response.status == "OK") {

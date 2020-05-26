@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:9001'
-  // baseUrl: 'http://localhost:8081'
+  // baseUrl: 'http://localhost:9001'
+  baseUrl: 'http://localhost:8081'
   // baseUrl: 'http://9.112.68.184:8081'
 
 };
