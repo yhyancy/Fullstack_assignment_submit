@@ -25,7 +25,7 @@ export class ChangePasswordComponent implements OnInit {
       // 发送请求
       this.userService.postChangePwd(value).subscribe((data) => {
         this.result = data
-        if (this.result.status == "ok") {
+        if (this.result.status == "OK") {
           //删除cookie
           this.cookieService.delUnameCookie()
           // 删除token
