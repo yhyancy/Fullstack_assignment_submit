@@ -4,6 +4,8 @@ import { CompareCompanyList } from '../../../Mock/compare_company'
 import { Compare_Company } from '../../../Model/compare_company'
 import { CompareService } from '../../../services/compare.service'
 
+// var echarts = require('echarts');
+
 import * as $ from 'jquery'
 @Component({
   selector: 'app-compare-company',
@@ -11,6 +13,9 @@ import * as $ from 'jquery'
   styleUrls: ['./compare-company.component.scss']
 })
 export class CompareCompanyComponent implements OnInit {
+  // myChart = echarts.init(document.getElementById('main'));
+
+  // 绘制图表
   model: NgbDateStruct;
   // standard chart
   public Scatagory: string = "Company"
@@ -50,7 +55,7 @@ export class CompareCompanyComponent implements OnInit {
     console.log(this.data0.time1)
     console.log(this.data0.price1)
   }
-
+  echartsIntance: any;
   options = {
     title: {
       text: '股票图表',
@@ -64,7 +69,7 @@ export class CompareCompanyComponent implements OnInit {
     },
     legend: {
       // data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30']
-      data: ['日K']
+      data: this.data0.name
 
     },
     grid: {
@@ -105,7 +110,7 @@ export class CompareCompanyComponent implements OnInit {
     ],
     series: [
       {
-        name: '日K',
+        name: this.data0.name,
         type: 'candlestick',
         data: [],
         itemStyle: {
@@ -217,10 +222,19 @@ export class CompareCompanyComponent implements OnInit {
     }
 
   }
+  onChartInit(ec: any) {
+    this.echartsIntance = ec;
+  }
+
+
   setOptions() {
     this.options.xAxis.data.push(this.data0.time1)
     this.options.series[0].data.push(this.data0.price1)
     console.log(this.options)
+    if (this.echartsIntance) {
+      this.echartsIntance.clear();
+      this.echartsIntance.setOption(this.options, true);
+    }
     this.visiable = true
   }
   generateStandardChart(value: any, valid: boolean) {
