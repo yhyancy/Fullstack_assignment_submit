@@ -203,7 +203,7 @@
             <div class="form-group">
                 <span><label for="companyCode">Company Code</label>
                     <input type="text" class="form-control" id="companyCode" ngModel name="company_code"
-                        [(ngModel)]="currentCompany.company_code" required #companyCode="ngModel"></span>
+                        [(ngModel)]="currentCompany.company_code" required #companyCode="ngModel" readonly></span>
             </div>
             <div *ngIf=" companyCode.invalid && (companyCode.dirty || companyCode.touched)" class="alert alert-danger">
                 <div *ngIf="companyCode.errors.required">
