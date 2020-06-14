@@ -149,8 +149,11 @@
                 <button type="submit" class="btn btn-info" [disabled]="!myForm.form.valid">Generate chart</button>
             </form>
             <!-- echarts -->
-            <div id="main" echarts *ngIf="visiable" [options]="options" (chartInit)="onChartInit($event)"
+            <div echarts *ngIf="visiable" [options]="standardOptions1" (chartInit)="onChartInit($event)"
                 style="height: 400px; width: 50%;"></div>
+            <div echarts *ngIf="visiable" [options]="standardOptions2" (chartInit)="onChartInit($event)"
+                style="height: 400px; width: 50%;"></div>
+
             {{ myForm.value | json }}
             {{ myForm.valid}}
         </ng-template>

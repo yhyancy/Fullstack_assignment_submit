@@ -51,13 +51,15 @@ export class CompareCompanyComponent implements OnInit {
     for (var i = 0; i < data1.length; i++) {
       this.data0.time1.push(data1[i].time)
       this.data0.price1.push(data1[i].price)
+      this.data0.time2.push(data2[i].time)
+      this.data0.price2.push(data2[i].price)
     }
     console.log('time1', this.data0.time1)
     console.log('price1', this.data0.price1)
   }
   echartsIntance: any;
 
-  options = {
+  standardOptions1 = {
     xAxis: {
       type: 'category',
       // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -72,6 +74,22 @@ export class CompareCompanyComponent implements OnInit {
       type: 'line'
     }]
   };
+
+
+  standardOptions2 = {
+    xAxis: {
+      type: 'category',
+      data: []
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [{
+      data: [],
+      type: 'line'
+    }]
+  };
+
   // echarts end
 
   constructor(public compareService: CompareService) { }
@@ -97,14 +115,17 @@ export class CompareCompanyComponent implements OnInit {
   setOptions() {
 
     // this.options.xAxis.data.push(this.data0.time1)
-    this.options.xAxis.data = this.data0.time1
+    this.standardOptions1.xAxis.data = this.data0.time1
+    this.standardOptions2.xAxis.data = this.data0.time2
     // this.options.series[0].data.push(this.data0.price1)
-    this.options.series[0].data = this.data0.price1
+    this.standardOptions1.series[0].data = this.data0.price1
+    this.standardOptions2.series[0].data = this.data0.price2
 
-    console.log(this.options)
+    console.log(this.standardOptions1)
     if (this.echartsIntance) {
       this.echartsIntance.clear();
-      this.echartsIntance.setOption(this.options, true);
+      this.echartsIntance.setOption(this.standardOptions1, true);
+      this.echartsIntance.setOption(this.standardOptions2, true);
     }
     this.visiable = true
   }
@@ -124,6 +145,8 @@ export class CompareCompanyComponent implements OnInit {
       else {
         this.compareService.compareSingleSector(value).subscribe((data: any) => {
           console.log(data)
+          this.splitData(data)
+          this.setOptions()
         })
       }
     }
