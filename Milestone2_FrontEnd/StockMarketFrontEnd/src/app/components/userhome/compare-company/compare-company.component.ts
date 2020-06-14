@@ -52,160 +52,25 @@ export class CompareCompanyComponent implements OnInit {
       this.data0.time1.push(data1[i].time)
       this.data0.price1.push(data1[i].price)
     }
-    console.log(this.data0.time1)
-    console.log(this.data0.price1)
+    console.log('time1', this.data0.time1)
+    console.log('price1', this.data0.price1)
   }
   echartsIntance: any;
-  options = {
-    title: {
-      text: '股票图表',
-      left: 0
-    },
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'cross'
-      }
-    },
-    legend: {
-      // data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30']
-      data: this.data0.name
 
-    },
-    grid: {
-      left: '10%',
-      right: '10%',
-      bottom: '15%'
-    },
+  options = {
     xAxis: {
       type: 'category',
-      data: [],
-      scale: true,
-      boundaryGap: false,
-      axisLine: { onZero: false },
-      splitLine: { show: false },
-      splitNumber: 20,
-      min: 'dataMin',
-      max: 'dataMax'
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      // data: []
     },
     yAxis: {
-      scale: true,
-      splitArea: {
-        show: true
-      }
+      type: 'value'
     },
-    dataZoom: [
-      {
-        type: 'inside',
-        start: 50,
-        end: 100
-      },
-      {
-        show: true,
-        type: 'slider',
-        top: '90%',
-        start: 50,
-        end: 100
-      }
-    ],
-    series: [
-      {
-        name: this.data0.name,
-        type: 'candlestick',
-        data: [],
-        itemStyle: {
-          color: this.upColor,
-          color0: this.downColor,
-          borderColor: this.upBorderColor,
-          borderColor0: this.downBorderColor
-        },
-        markPoint: {
-          label: {
-            normal: {
-              formatter: function (param) {
-                return param != null ? Math.round(param.value) : '';
-              }
-            }
-          },
-          data: [
-            {
-              name: 'XX标点',
-              coord: ['2013/5/31', 2300],
-              value: 2300,
-              itemStyle: {
-                color: 'rgb(41,60,85)'
-              }
-            },
-            {
-              name: 'highest value',
-              type: 'max',
-              valueDim: 'highest'
-            },
-            {
-              name: 'lowest value',
-              type: 'min',
-              valueDim: 'lowest'
-            },
-            {
-              name: 'average value on close',
-              type: 'average',
-              valueDim: 'close'
-            }
-          ],
-          tooltip: {
-            formatter: function (param) {
-              return param.name + '<br>' + (param.data.coord || '');
-            }
-          }
-        },
-        markLine: {
-          symbol: ['none', 'none'],
-          data: [
-            [
-              {
-                name: 'from lowest to highest',
-                type: 'min',
-                valueDim: 'lowest',
-                symbol: 'circle',
-                symbolSize: 10,
-                label: {
-                  show: false
-                },
-                emphasis: {
-                  label: {
-                    show: false
-                  }
-                }
-              },
-              {
-                type: 'max',
-                valueDim: 'highest',
-                symbol: 'circle',
-                symbolSize: 10,
-                label: {
-                  show: false
-                },
-                emphasis: {
-                  label: {
-                    show: false
-                  }
-                }
-              }
-            ],
-            {
-              name: 'min line on close',
-              type: 'min',
-              valueDim: 'close'
-            },
-            {
-              name: 'max line on close',
-              type: 'max',
-              valueDim: 'close'
-            }
-          ]
-        }
-      }
-    ]
+    series: [{
+      data: [820, 932, 901, 934, 1290, 1330, 1320],
+      // data: [],
+      type: 'line'
+    }]
   };
   // echarts end
 
@@ -214,22 +79,28 @@ export class CompareCompanyComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  ngDoCheck(): void {
-    if (this.visiable == true) {
-      this.options.xAxis.data.push(this.data0.time1)
-      this.options.series[0].data.push(this.data0.price1)
-      console.log(this.options.xAxis.data.push(this.data0.time1))
-    }
+  // ngDoCheck(): void {
+  //   if (this.visiable == true) {
+  //     // this.options.xAxis.data.push(this.data0.time1)
+  //     this.options.xAxis.data = this.data0.time1
 
-  }
+  //     // this.options.series[0].data.push(this.data0.price1)
+  //     this.options.series[0].data = this.data0.price1
+
+  //     console.log(this.options.xAxis.data.push(this.data0.time1))
+  //   }
+  // }
   onChartInit(ec: any) {
     this.echartsIntance = ec;
   }
 
-
   setOptions() {
-    this.options.xAxis.data.push(this.data0.time1)
-    this.options.series[0].data.push(this.data0.price1)
+
+    // this.options.xAxis.data.push(this.data0.time1)
+    this.options.xAxis.data = this.data0.time1
+    // this.options.series[0].data.push(this.data0.price1)
+    this.options.series[0].data = this.data0.price1
+
     console.log(this.options)
     if (this.echartsIntance) {
       this.echartsIntance.clear();
@@ -253,7 +124,6 @@ export class CompareCompanyComponent implements OnInit {
       else {
         this.compareService.compareSingleSector(value).subscribe((data: any) => {
           console.log(data)
-
         })
       }
     }
