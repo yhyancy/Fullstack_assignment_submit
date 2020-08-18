@@ -14,8 +14,8 @@ export class IPOService {
   // user/ipo/list
   getUserIPOs() {
     // let api = environment.baseUrl + '/user/ipo/list'
-    // let api = "http://localhost:8083/user/ipo/list"
-    let api = "http://www.fsd.yancystudy.com:8085/yancy/ipo/user/ipo/list"
+    let api = "http://localhost:8083/user/ipo/list"
+    // let api = "http://www.fsd.yancystudy.com:8085/yancy/ipo/user/ipo/list"
 
     return this.http.get(api)
   }
